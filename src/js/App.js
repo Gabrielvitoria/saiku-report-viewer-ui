@@ -34,4 +34,4 @@ var routes = (
 );
 
 // The primary API for rendering into the DOM.
-ReactDOM.render(routes, document.querySelector('#app'));
+ReactDOM.render(routes, document.querySelector('#saiku-app'));

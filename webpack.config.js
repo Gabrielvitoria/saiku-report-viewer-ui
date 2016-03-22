@@ -117,7 +117,7 @@ if (env === 'dev') {
     }
   });
 
-  figlet(' Saiku React Starter', {
+  figlet(' Saiku Report Viewer UI', {
       font: 'Slant'
     }, function(err, data) {
     console.log(chalk.red(data) + '\n');

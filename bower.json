@@ -1,6 +1,6 @@
 {
-  "name": "saiku-react-starter",
-  "description": "A template for writing React based ECMAScript 2015 (ES6) app using webpack, Browsersync, Gulp and more.",
+  "name": "saiku-report-viewer-ui",
+  "description": "Saiku Report Viewer User Interface",
   "homepage": "http://www.meteorite.bi",
   "version": "0.1.0",
   "author": "Meteorite BI",

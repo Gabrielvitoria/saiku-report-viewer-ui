@@ -1,6 +1,6 @@
 {
-  "name": "saiku-react-starter",
-  "description": "A template for writing React based ECMAScript 2015 (ES6) app using webpack, Browsersync, Gulp and more.",
+  "name": "saiku-report-viewer-ui",
+  "description": "Saiku Report Viewer User Interface",
   "homepage": "http://www.meteorite.bi",
   "version": "0.1.0",
   "author": {
@@ -10,16 +10,19 @@
   },
   "licenses": {
     "type": "Apache-2.0",
-    "url": "https://github.com/OSBI/react-starter-template/blob/master/LICENSE"
+    "url": "https://github.com/OSBI/saiku-report-viewer-ui/blob/master/LICENSE"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OSBI/react-starter-template.git"
+    "url": "git+https://github.com/OSBI/saiku-report-viewer-ui.git"
   },
-  "keywords": [
-    "react",
-    "react-starter",
-    "webpack"
+ "keywords": [
+    "analytics-client",
+    "business-intelligence",
+    "saiku-report",
+    "saiku-report-viewer",
+    "saiku-report-viewer-ui",
+    "user-interface"
   ],
   "bugs": {
     "url": "http://jira.meteorite.bi"
@@ -30,6 +33,7 @@
     "clean": "rm -r node_modules; rm -r bower_components; rm -r .publish; rm -r npm-debug.log",
     "dev": "WEBPACK_ENV=dev ./node_modules/.bin/webpack --watch --inline",
     "docs": "esdoc -c esdoc.json && gulp deploy-pages",
+    "server": "node server.js",
     "test": "KARMA=test karma start",
     "test:ci": "KARMA=test:ci karma start"
   },
