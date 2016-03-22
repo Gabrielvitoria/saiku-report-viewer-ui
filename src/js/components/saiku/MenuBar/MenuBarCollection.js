@@ -15,13 +15,13 @@
  */
 
 import Backbone from 'backbone';
-import MenubarModel from './MenubarModel';
+import MenuBarModel from './MenuBarModel';
 
-class MenubarCollection extends Backbone.Collection {
+class MenuBarCollection extends Backbone.Collection {
   constructor(options) {
     super(options);
 
-    this.model = MenubarModel;
+    this.model = MenuBarModel;
   }
 
   url() {
@@ -29,4 +29,4 @@ class MenubarCollection extends Backbone.Collection {
   }
 }
 
-export default MenubarCollection;
+export default MenuBarCollection;

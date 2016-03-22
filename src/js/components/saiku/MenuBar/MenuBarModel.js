@@ -16,10 +16,10 @@
 
 import Backbone from 'backbone';
 
-class MenubarModel extends Backbone.Model {
+class MenuBarModel extends Backbone.Model {
   getItem() {
     return this.get('item');
   }
 }
 
-export default MenubarModel;
+export default MenuBarModel;
