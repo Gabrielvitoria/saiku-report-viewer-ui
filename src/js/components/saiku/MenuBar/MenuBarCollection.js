@@ -14,17 +14,19 @@
  *   limitations under the License.
  */
 
-var express    = require('express');
-var bodyParser = require('body-parser');
-var cors       = require('cors');
-var app        = express();
+import Backbone from 'backbone';
+import MenubarModel from './MenubarModel';
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+class MenubarCollection extends Backbone.Collection {
+  constructor(options) {
+    super(options);
 
-var routes = require('./server/routes.js')(app);
+    this.model = MenubarModel;
+  }
 
-var server = app.listen(9999, function() {
-  console.log('Listening on port %s...', server.address().port);
-});
+  url() {
+    return 'http://localhost:9999/menubar';
+  }
+}
+
+export default MenubarCollection;

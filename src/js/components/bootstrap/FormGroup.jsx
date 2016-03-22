@@ -14,17 +14,24 @@
  *   limitations under the License.
  */
 
-var express    = require('express');
-var bodyParser = require('body-parser');
-var cors       = require('cors');
-var app        = express();
+import React from 'react';
+import classNames from 'classnames';
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+class FormGroup extends React.Component {
+  render() {
+    return (
+      <div
+      {...this.props}
+      className={classNames('form-group', this.props.className)}>
+      {this.props.children}
+      </div>
+    );
+  }
+}
 
-var routes = require('./server/routes.js')(app);
+FormGroup.propTypes = {
+  className: React.PropTypes.string,
+  children: React.PropTypes.node.isRequired
+};
 
-var server = app.listen(9999, function() {
-  console.log('Listening on port %s...', server.address().port);
-});
+export default FormGroup;

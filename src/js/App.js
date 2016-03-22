@@ -17,7 +17,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
-import Template from './views/Template';
+import ReportViewer from './views/ReportViewer';
 
 // webpack loaders
 import '../../index.html';
@@ -29,7 +29,7 @@ import '../../dist/saiku/saiku.css';
  */
 var routes = (
   <Router history={browserHistory}>
-    <Route path="/" component={Template} />
+    <Route path="/" component={ReportViewer} />
   </Router>
 );
 

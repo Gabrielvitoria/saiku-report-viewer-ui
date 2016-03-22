@@ -17,39 +17,19 @@
 import React from 'react';
 import classNames from 'classnames';
 
-/**
- * This component should display a content.
- *
- * @example
- * <Component />
- */
-class Component extends React.Component {
-
-  /**
-   * React components implement the `render()` method that takes input data and
-   * returns what to display. This method uses an XML-like syntax called JSX.
-   * Input data that is passed into the component can be accessed by `render()`
-   * via this.props.
-   *
-   * @return {HTMLElement|Node|String} An image the company.
-   */
+class Clearfix extends React.Component {
   render() {
     return (
       <div
         {...this.props}
-        className={classNames('starter-template', this.props.className)}
-      >
-        <h1>Bootstrap starter template</h1>
-        <p className="lead">
-          Use this document as a way to quickly start any new project.
-        </p>
+        className={classNames('clearfix', this.props.className)}>
       </div>
     );
   }
 }
 
-Component.propTypes = {
+Clearfix.propTypes = {
   className: React.PropTypes.string
 };
 
-export default Component;
+export default Clearfix;

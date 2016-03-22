@@ -14,17 +14,28 @@
  *   limitations under the License.
  */
 
-var express    = require('express');
-var bodyParser = require('body-parser');
-var cors       = require('cors');
-var app        = express();
+/*! =========================================================================
+   TREE
+   ========================================================================= */
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// The tree node's style
+.tree-view 
+  overflow-y hidden
 
-var routes = require('./server/routes.js')(app);
+.tree-view_children
+  margin-left 16px
 
-var server = app.listen(9999, function() {
-  console.log('Listening on port %s...', server.address().port);
-});
+.tree-view_children-collapsed
+  height 0
+
+.tree-view_arrow
+  cursor pointer
+  margin-right 6px
+  display inline-block
+  user-select none
+  &:after
+    content "▾"
+
+// Rotate the triangle to close it
+.tree-view_arrow-collapsed
+  transform rotate(-90deg)

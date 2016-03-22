@@ -14,17 +14,12 @@
  *   limitations under the License.
  */
 
-var express    = require('express');
-var bodyParser = require('body-parser');
-var cors       = require('cors');
-var app        = express();
+const Settings = {
+  KARAF_WEBAPP: '/cxf',
+  REST_MOUNT_POINT: '/rest/core/',
+  ERROR_TOLERANCE: 3
+};
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+Settings.REST_URL = Settings.KARAF_WEBAPP + Settings.REST_MOUNT_POINT;
 
-var routes = require('./server/routes.js')(app);
-
-var server = app.listen(9999, function() {
-  console.log('Listening on port %s...', server.address().port);
-});
+export default Settings;
