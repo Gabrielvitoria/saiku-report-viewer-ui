@@ -15,6 +15,7 @@
  */
 
 import React from 'react';
+import Wrapper from '../components/saiku/Wrapper';
 import MenuBar from '../components/saiku/MenuBar/MenuBar';
 
 class ReportViewer extends React.Component {
@@ -29,10 +30,10 @@ class ReportViewer extends React.Component {
    */
   render() {
     return (
-      <div>
+      <Wrapper isOpenSidebar>
         <MenuBar />
         <h1>Report Viewer</h1>
-      </div>
+      </Wrapper>
     );
   }
 }

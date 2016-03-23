@@ -59,8 +59,8 @@ class MenuBar extends React.Component {
     return (
       <NavDropdown
         className={isVisible}
-        key={key}
         id={key}
+        key={key}
         eventKey={index}
         title={menu.name}
       >
@@ -76,8 +76,8 @@ class MenuBar extends React.Component {
     return (
       <MenuItem
         className={isVisible}
-        key={key}
         id={key}
+        key={key}
         eventKey={key}
         href={submenu.action}
       >

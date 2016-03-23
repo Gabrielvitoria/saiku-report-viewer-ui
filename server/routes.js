@@ -17,6 +17,7 @@
 var path        = require('path');
 var jsonfile    = require('jsonfile');
 var fileMenuBar = './src/js/components/saiku/MenuBar/data.json';
+var fileToolbar = './src/js/components/saiku/Toolbar/data.json';
 var dataMock;
 
 var appRouter = function(app) {
@@ -26,6 +27,8 @@ var appRouter = function(app) {
       '<ul>' +
         '<li><a href="/user?username=admin">Login</a></li>' +
         '<li><a href="/menubar">MenuBar</a></li>' +
+        '<li><a href="/toolbar">Toolbar</a></li>' +
+        '<li><a href="/report/filename">Pentaho Report</a></li>' +
       '</ul>'
     );
   });
@@ -50,6 +53,16 @@ var appRouter = function(app) {
   app.get('/menubar', function(req, res) {
     dataMock = jsonfile.readFileSync(fileMenuBar);
     return res.send(dataMock);
+  });
+
+  app.get('/toolbar', function(req, res) {
+    dataMock = jsonfile.readFileSync(fileToolbar);
+    return res.send(dataMock);
+  });
+
+  app.get('/report/:filename', function(req, res) {
+    var file = '/../src/js/components/saiku/Report/report.html';
+    res.sendFile(path.join(__dirname + file));
   });
 };
 
