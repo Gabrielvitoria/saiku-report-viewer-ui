@@ -1,74 +1,44 @@
 {
   "item": [
     {
-      "name": "Refresh Cubes (Clear Cache)",
+      "name": "",
       "visible": true,
-      "icon": "refresh"
+      "icon": "print"
     },
     {
-      "name": "Open query",
+      "name": "",
       "visible": true,
-      "icon": "folder"
+      "icon": "print"
     },
     {
-      "name": "Save query",
+      "name": "",
       "visible": true,
-      "icon": "save"
+      "icon": "angle-double-left"
     },
     {
-      "name": "Reset query",
+      "name": "",
       "visible": true,
-      "icon": "file-o"
+      "icon": "angle-left"
     },
     {
-      "name": "Edit query",
+      "name": "",
       "visible": true,
-      "icon": "pencil"
+      "icon": "angle-right"
     },
     {
-      "name": "Run query",
+      "name": "",
       "visible": true,
-      "icon": "play"
+      "icon": "angle-double-right"
     },
     {
-      "name": "Automatic execution",
+      "name": "",
       "visible": true,
-      "icon": "step-forward"
+      "icon": "search-plus"
     },
     {
-      "name": "Swap axis",
+      "name": "",
       "visible": true,
-      "icon": "retweet"
-    },
-    {
-      "name": "Zoom into table",
-      "visible": true,
-      "icon": "search"
-    },
-    {
-      "name": "Export XLS",
-      "visible": true,
-      "icon": "file-excel-o"
-    },
-    {
-      "name": "Export CSV",
-      "visible": true,
-      "icon": "file-code-o"
-    },
-    {
-      "name": "Export PDF",
-      "visible": true,
-      "icon": "file-pdf-o"
-    },
-    {
-      "name": "Switch to MDX Mode",
-      "visible": true,
-      "icon": "edit"
-    },
-    {
-      "name": "Embed Link",
-      "visible": true,
-      "icon": "link"
+      "icon": "search-minus"
     }
   ]
 }

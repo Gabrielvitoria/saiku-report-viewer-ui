@@ -17,6 +17,7 @@
 import React from 'react';
 import autoBind from 'react-autobind';
 import _ from 'underscore';
+import classNames from 'classnames';
 import {
   Grid,
   Navbar,
@@ -37,7 +38,8 @@ class MenuBar extends React.Component {
 
     this._menubarUI = new MenubarCollection();
 
-    autoBind(this, '_handleFetchUI', '_renderMenu', '_renderSubMenu');
+    autoBind(this, '_handleFetchUI', '_renderMenu', '_renderSubMenu',
+      '_blockTopbar');
   }
 
   componentDidMount() {
@@ -86,12 +88,9 @@ class MenuBar extends React.Component {
     );
   }
 
-  render() {
-    let menus = (this.state && !(_.isEmpty(this.state.models))) ?
-      this.state.models.getItem() : [];
-
-    return (
-      <div className="topbar">
+  _renderLogo(isLogo) {
+    if (isLogo) {
+      return (
         <div className="topbar-left">
           <div className="text-center">
             <a href="#" className="logo">
@@ -103,7 +102,32 @@ class MenuBar extends React.Component {
             </a>
           </div>
         </div>
+      );
+    }
+  }
 
+  _blockTopbar(isBlock) {
+    if (isBlock) {
+      return {
+        position: 'relative !important'
+      };
+    }
+  }
+
+  render() {
+    let menus = (this.state && !(_.isEmpty(this.state.models))) ?
+      this.state.models.getItem() : [];
+    let isLogo = this.props.logo;
+    let isBlock = this.props.block;
+    let styleTopbar = this._blockTopbar(isBlock);
+
+    return (
+      <div
+        className={classNames('topbar', this.props.className)}
+        {...this.props}
+        style={styleTopbar}
+      >
+        {this._renderLogo(isLogo)}
         <Navbar role="navigation">
           <Grid>
             <Nav className="hidden-xs">
@@ -115,5 +139,16 @@ class MenuBar extends React.Component {
     );
   }
 }
+
+MenuBar.propTypes = {
+  className: React.PropTypes.string,
+  logo: React.PropTypes.bool,
+  block: React.PropTypes.bool
+};
+
+MenuBar.defaultProps = {
+  logo: false,
+  block: false
+};
 
 export default MenuBar;

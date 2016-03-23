@@ -15,8 +15,15 @@
  */
 
 import React from 'react';
+import {
+  Row,
+  Col,
+  Input,
+  Button
+} from 'react-bootstrap';
 import Wrapper from '../components/saiku/Wrapper';
 import MenuBar from '../components/saiku/MenuBar/MenuBar';
+import Toolbar from '../components/saiku/Toolbar/Toolbar';
 
 class ReportViewer extends React.Component {
 
@@ -31,8 +38,43 @@ class ReportViewer extends React.Component {
   render() {
     return (
       <Wrapper isOpenSidebar>
-        <MenuBar />
-        <h1>Report Viewer</h1>
+        <MenuBar logo block />
+        <Toolbar />
+        <div className="content-box m-b-0 b-r-0">
+          <form className="form-horizontal">
+            <Input
+              type="text"
+              label="Sample String"
+              labelClassName="col-md-1"
+              wrapperClassName="col-md-5"
+            />
+            <Input
+              type="textarea"
+              label="Boolean Param"
+              labelClassName="col-md-1"
+              wrapperClassName="col-md-5"
+            />
+            <Input
+              type="text"
+              label="The Date"
+              labelClassName="col-md-1"
+              wrapperClassName="col-md-5"
+            />
+          </form>
+        </div>
+        <div className="content-box m-b-0 b-t-0 b-r-0">
+          <Row>
+            <Col md={6}>
+              <Input
+                type="checkbox"
+                label="Auto-Update on selection"
+              />
+            </Col>
+            <Col md={6}>
+              <Button className="pull-right">Update</Button>
+            </Col>
+          </Row>
+        </div>
       </Wrapper>
     );
   }
