@@ -25,7 +25,7 @@ class MenuBarCollection extends Backbone.Collection {
   }
 
   url() {
-    return 'http://localhost:9999/menubar';
+    return 'http://localhost:9999/srep/viewer/ui/menubar';
   }
 }
 

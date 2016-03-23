@@ -16,8 +16,8 @@
 
 var path        = require('path');
 var jsonfile    = require('jsonfile');
-var fileMenuBar = './src/js/components/saiku/MenuBar/data.json';
-var fileToolbar = './src/js/components/saiku/Toolbar/data.json';
+var fileMenuBar = './server/data/MenuBar.json';
+var fileToolbar = './server/data/Toolbar.json';
 var dataMock;
 
 var appRouter = function(app) {
@@ -25,43 +25,25 @@ var appRouter = function(app) {
     res.send(
       '<h1>Routes:</h1>' +
       '<ul>' +
-        '<li><a href="/user?username=admin">Login</a></li>' +
-        '<li><a href="/menubar">MenuBar</a></li>' +
-        '<li><a href="/toolbar">Toolbar</a></li>' +
-        '<li><a href="/report/filename">Pentaho Report</a></li>' +
+        '<li><a href="/srep/viewer/ui/menubar">MenuBar</a></li>' +
+        '<li><a href="/srep/viewer/ui/toolbar">Toolbar</a></li>' +
+        '<li><a href="/srep/viewer/ui/report/filename">Pentaho Report</a></li>' +
       '</ul>'
     );
   });
 
-  app.get('/user', function(req, res) {
-    var accountMock = {
-      username: 'admin',
-      password: 'admin'
-    };
-
-    if (!req.query.username) {
-      return res.send({ 'status': 'error', 'message': 'missing username' });
-    }
-    else if (req.query.username !== accountMock.username) {
-      return res.send({ 'status': 'error', 'message': 'wrong username' });
-    }
-    else {
-      return res.send(accountMock);
-    }
-  });
-
-  app.get('/menubar', function(req, res) {
+  app.get('/srep/viewer/ui/menubar', function(req, res) {
     dataMock = jsonfile.readFileSync(fileMenuBar);
     return res.send(dataMock);
   });
 
-  app.get('/toolbar', function(req, res) {
+  app.get('/srep/viewer/ui/toolbar', function(req, res) {
     dataMock = jsonfile.readFileSync(fileToolbar);
     return res.send(dataMock);
   });
 
-  app.get('/report/:filename', function(req, res) {
-    var file = '/../src/js/components/saiku/Report/report.html';
+  app.get('/srep/viewer/ui/report/:filename', function(req, res) {
+    var file = '/../server/data/report.html';
     res.sendFile(path.join(__dirname + file));
   });
 };
