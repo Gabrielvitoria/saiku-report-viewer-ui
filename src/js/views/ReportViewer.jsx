@@ -24,6 +24,7 @@ import {
 import Wrapper from '../components/saiku/Wrapper';
 import MenuBar from '../components/saiku/MenuBar/MenuBar';
 import Toolbar from '../components/saiku/Toolbar/Toolbar';
+import Report from '../components/saiku/Report/Report';
 
 class ReportViewer extends React.Component {
 
@@ -75,6 +76,7 @@ class ReportViewer extends React.Component {
             </Col>
           </Row>
         </div>
+        <Report />
       </Wrapper>
     );
   }

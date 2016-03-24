@@ -43,7 +43,7 @@ var appRouter = function(app) {
   });
 
   app.get('/srep/viewer/ui/report/:filename', function(req, res) {
-    var file = '/../server/data/report.html';
+    var file = '/../server/data/Report.html';
     res.sendFile(path.join(__dirname + file));
   });
 };

@@ -66,6 +66,10 @@ var config = {
   module: {
     loaders: [
       {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
+      {
         test: /\.html$/,
         loader: 'html-loader'
       },
@@ -79,8 +83,11 @@ var config = {
       },
       {
         test: /\.(jsx|js)$/,
-        loader: 'babel',
-        exclude: /(node_modules|bower_components)/
+        loader: 'babel-loader',
+        exclude: /(node_modules|bower_components)/,
+        query: {
+          presets: ['es2015']
+        }
       },
       {
         test: /\.(jsx|js)$/,

@@ -14,9 +14,9 @@
  *   limitations under the License.
  */
 
-import Backbone from 'backbone';
+import SaikuServer from '../../../adapters/SaikuServer';
 
-class ToolbarModel extends Backbone.Model {
+class ToolbarModel extends SaikuServer.Model {
   getItem() {
     return this.get('item');
   }

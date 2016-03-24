@@ -14,10 +14,10 @@
  *   limitations under the License.
  */
 
-import Backbone from 'backbone';
+import SaikuServer from '../../../adapters/SaikuServer';
 import ToolbarModel from './ToolbarModel';
 
-class ToolbarCollection extends Backbone.Collection {
+class ToolbarCollection extends SaikuServer.Collection {
   constructor(options) {
     super(options);
 
