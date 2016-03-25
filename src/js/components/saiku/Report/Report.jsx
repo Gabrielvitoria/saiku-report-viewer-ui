@@ -15,6 +15,12 @@
  */
 
 import React from 'react';
+import {
+  Grid,
+  Row,
+  Col,
+  ResponsiveEmbed
+} from 'react-bootstrap';
 
 class Report extends React.Component {
   constructor(props) {
@@ -23,7 +29,26 @@ class Report extends React.Component {
 
   render() {
     return (
-      <h1>Report</h1>
+      <Grid>
+        <Row>
+          <Col md={1}></Col>
+          <Col md={10}>
+            <div className="content-box m-t-20">
+              <ResponsiveEmbed a4by3>
+                <iframe
+                  frameBorder="0"
+                  scrolling="yes"
+                  marginHeight="0"
+                  marginWidth="0"
+                  src="http://www.willgorman.com/wills_analytics/wills_analytics_report.html"
+                >
+                </iframe>
+              </ResponsiveEmbed>
+            </div>
+          </Col>
+          <Col md={1}></Col>
+        </Row>
+      </Grid>
     );
   }
 }
