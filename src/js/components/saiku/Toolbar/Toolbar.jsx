@@ -24,7 +24,7 @@ import {
   OverlayTrigger,
   Tooltip
 } from 'react-bootstrap';
-import Icon from '../Icon';
+import { Icon } from '../react-saiku';
 import ToolbarCollection from './ToolbarCollection';
 
 class Toolbar extends React.Component {

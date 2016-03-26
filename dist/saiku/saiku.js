@@ -56610,9 +56610,7 @@
 	
 	var _reactBootstrap = __webpack_require__(217);
 	
-	var _Icon = __webpack_require__(480);
-	
-	var _Icon2 = _interopRequireDefault(_Icon);
+	var _reactSaiku = __webpack_require__(491);
 	
 	var _ToolbarCollection = __webpack_require__(481);
 	
@@ -56695,7 +56693,7 @@
 	        _react2.default.createElement(
 	          _reactBootstrap.OverlayTrigger,
 	          { placement: 'bottom', overlay: tooltip },
-	          _react2.default.createElement(_Icon2.default, { name: item.icon })
+	          _react2.default.createElement(_reactSaiku.Icon, { name: item.icon })
 	        )
 	      );
 	    }
@@ -56722,117 +56720,7 @@
 	exports.default = Toolbar;
 
 /***/ },
-/* 480 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _classnames = __webpack_require__(251);
-	
-	var _classnames2 = _interopRequireDefault(_classnames);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-	
-	var Icon = function (_React$Component) {
-	  _inherits(Icon, _React$Component);
-	
-	  function Icon() {
-	    _classCallCheck(this, Icon);
-	
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Icon).apply(this, arguments));
-	  }
-	
-	  _createClass(Icon, [{
-	    key: 'render',
-	    value: function render() {
-	      var _classNames;
-	
-	      var _props = this.props;
-	      var name = _props.name;
-	      var fixed = _props.fixed;
-	      var spin = _props.spin;
-	      var pulse = _props.pulse;
-	      var size = _props.size;
-	      var rotate = _props.rotate;
-	      var flip = _props.flip;
-	
-	      var className = (0, _classnames2.default)(this.props.className, (_classNames = {}, _defineProperty(_classNames, this.props.faClass, true), _defineProperty(_classNames, 'fa-' + name, true), _defineProperty(_classNames, 'fa-fw', fixed), _defineProperty(_classNames, 'fa-spin', spin), _defineProperty(_classNames, 'fa-pulse', pulse), _classNames));
-	
-	      if (size) {
-	        className = className + ' fa-' + size;
-	      }
-	
-	      if (rotate) {
-	        className = className + ' fa-rotate-' + rotate;
-	      }
-	
-	      if (flip) {
-	        className = className + ' fa-flip-' + flip;
-	      }
-	
-	      return _react2.default.createElement('i', _extends({}, this.props, { className: className }));
-	    }
-	  }]);
-	
-	  return Icon;
-	}(_react2.default.Component);
-	
-	Icon.propTypes = {
-	  className: _react2.default.PropTypes.string,
-	  faClass: _react2.default.PropTypes.string,
-	  name: _react2.default.PropTypes.string.isRequired,
-	  fixed: _react2.default.PropTypes.bool,
-	  spin: _react2.default.PropTypes.bool,
-	  pulse: _react2.default.PropTypes.bool,
-	  size: _react2.default.PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
-	  rotate: _react2.default.PropTypes.oneOf(['45', '90', '135', '180', '225', '270', '315']),
-	  flip: _react2.default.PropTypes.oneOf(['horizontal', 'vertical'])
-	};
-	
-	Icon.defaultProps = {
-	  faClass: 'fa',
-	  fixed: false,
-	  spin: false,
-	  pulse: false
-	};
-	
-	exports.default = Icon;
-
-/***/ },
+/* 480 */,
 /* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -57400,6 +57288,298 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 489 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactPropTypes = __webpack_require__(492);
+	
+	var _classnames = __webpack_require__(251);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Copyright 2016 OSBI Ltd
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Licensed under the Apache License, Version 2.0 (the "License");
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   you may not use this file except in compliance with the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   You may obtain a copy of the License at
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *       http://www.apache.org/licenses/LICENSE-2.0
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   Unless required by applicable law or agreed to in writing, software
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   distributed under the License is distributed on an "AS IS" BASIS,
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   See the License for the specific language governing permissions and
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *   limitations under the License.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	/**
+	 * Saiku <Icon /> component.
+	 * This component should display a icon of Font-Awesome.
+	 *
+	 * @example
+	 * <Icon name="home" />
+	 */
+	
+	var Icon = function (_React$Component) {
+	  _inherits(Icon, _React$Component);
+	
+	  function Icon() {
+	    _classCallCheck(this, Icon);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Icon).apply(this, arguments));
+	  }
+	
+	  _createClass(Icon, [{
+	    key: 'render',
+	
+	
+	    /**
+	     * React components implement the `render()` method that takes input data and
+	     * returns what to display. This method uses an XML-like syntax called JSX.
+	     * Input data that is passed into the component can be accessed by `render()`
+	     * via this.props.
+	     *
+	     * @return {HTMLElement|Node|String} An image the company.
+	     */
+	    value: function render() {
+	      var _classNames;
+	
+	      var _props = this.props;
+	      var ComponentClass = _props.componentClass;
+	      var name = _props.name;
+	      var fixed = _props.fixed;
+	      var spin = _props.spin;
+	      var pulse = _props.pulse;
+	      var size = _props.size;
+	      var rotate = _props.rotate;
+	      var flip = _props.flip;
+	
+	      var className = (0, _classnames2.default)(this.props.className, (_classNames = {}, _defineProperty(_classNames, this.props.faClass, true), _defineProperty(_classNames, 'fa-' + name, true), _defineProperty(_classNames, 'fa-fw', fixed), _defineProperty(_classNames, 'fa-spin', spin), _defineProperty(_classNames, 'fa-pulse', pulse), _classNames));
+	
+	      if (size) {
+	        className = className + ' fa-' + size;
+	      }
+	
+	      if (rotate) {
+	        className = className + ' fa-rotate-' + rotate;
+	      }
+	
+	      if (flip) {
+	        className = className + ' fa-flip-' + flip;
+	      }
+	
+	      return _react2.default.createElement(ComponentClass, _extends({
+	        className: className
+	      }, this.props, {
+	        style: this.props.style
+	      }));
+	    }
+	  }]);
+	
+	  return Icon;
+	}(_react2.default.Component);
+	
+	Icon.displayName = 'Icon';
+	
+	Icon.propTypes = {
+	  componentClass: _reactPropTypes.elementType,
+	  className: _react2.default.PropTypes.string,
+	  style: _react2.default.PropTypes.string,
+	  faClass: _react2.default.PropTypes.string,
+	  name: _react2.default.PropTypes.string.isRequired,
+	  fixed: _react2.default.PropTypes.bool,
+	  spin: _react2.default.PropTypes.bool,
+	  pulse: _react2.default.PropTypes.bool,
+	  size: _react2.default.PropTypes.oneOf(['lg', '2x', '3x', '4x', '5x']),
+	  rotate: _react2.default.PropTypes.oneOf(['45', '90', '135', '180', '225', '270', '315']),
+	  flip: _react2.default.PropTypes.oneOf(['horizontal', 'vertical'])
+	};
+	
+	Icon.defaultProps = {
+	  componentClass: 'i',
+	  faClass: 'fa',
+	  fixed: false,
+	  spin: false,
+	  pulse: false
+	};
+	
+	exports.default = Icon;
+
+/***/ },
+/* 490 */,
+/* 491 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Icon = undefined;
+	
+	var _Icon2 = __webpack_require__(489);
+	
+	var _Icon3 = _interopRequireDefault(_Icon2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.Icon = _Icon3.default; /**
+	                                *   Copyright 2016 OSBI Ltd
+	                                *
+	                                *   Licensed under the Apache License, Version 2.0 (the "License");
+	                                *   you may not use this file except in compliance with the License.
+	                                *   You may obtain a copy of the License at
+	                                *
+	                                *       http://www.apache.org/licenses/LICENSE-2.0
+	                                *
+	                                *   Unless required by applicable law or agreed to in writing, software
+	                                *   distributed under the License is distributed on an "AS IS" BASIS,
+	                                *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	                                *   See the License for the specific language governing permissions and
+	                                *   limitations under the License.
+	                                */
+
+/***/ },
+/* 492 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	var _isRequiredForA11y2 = __webpack_require__(368);
+	
+	var _isRequiredForA11y3 = _interopRequireDefault(_isRequiredForA11y2);
+	
+	exports.isRequiredForA11y = _isRequiredForA11y3['default'];
+	
+	var _mountable2 = __webpack_require__(493);
+	
+	var _mountable3 = _interopRequireDefault(_mountable2);
+	
+	exports.mountable = _mountable3['default'];
+	
+	var _elementType2 = __webpack_require__(266);
+	
+	var _elementType3 = _interopRequireDefault(_elementType2);
+	
+	exports.elementType = _elementType3['default'];
+	
+	var _keyOf2 = __webpack_require__(494);
+	
+	var _keyOf3 = _interopRequireDefault(_keyOf2);
+	
+	exports.keyOf = _keyOf3['default'];
+	
+	var _singlePropFrom2 = __webpack_require__(221);
+	
+	var _singlePropFrom3 = _interopRequireDefault(_singlePropFrom2);
+	
+	exports.singlePropFrom = _singlePropFrom3['default'];
+	
+	var _all2 = __webpack_require__(269);
+	
+	var _all3 = _interopRequireDefault(_all2);
+	
+	exports.all = _all3['default'];
+	
+	var _deprecated2 = __webpack_require__(293);
+	
+	var _deprecated3 = _interopRequireDefault(_deprecated2);
+	
+	exports.deprecated = _deprecated3['default'];
+
+/***/ },
+/* 493 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _common = __webpack_require__(267);
+	
+	/**
+	 * Checks whether a prop provides a DOM element
+	 *
+	 * The element can be provided in two forms:
+	 * - Directly passed
+	 * - Or passed an object that has a `render` method
+	 *
+	 * @param props
+	 * @param propName
+	 * @param componentName
+	 * @returns {Error|undefined}
+	 */
+	
+	function validate(props, propName, componentName) {
+	  if (typeof props[propName] !== 'object' || typeof props[propName].render !== 'function' && props[propName].nodeType !== 1) {
+	    return new Error(_common.errMsg(props, propName, componentName, ', expected a DOM element or an object that has a `render` method'));
+	  }
+	}
+	
+	exports['default'] = _common.createChainableTypeChecker(validate);
+	module.exports = exports['default'];
+
+/***/ },
+/* 494 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports['default'] = keyOf;
+	
+	var _common = __webpack_require__(267);
+	
+	/**
+	 * Checks whether a prop matches a key of an associated object
+	 *
+	 * @param props
+	 * @param propName
+	 * @param componentName
+	 * @returns {Error|undefined}
+	 */
+	
+	function keyOf(obj) {
+	  function validate(props, propName, componentName) {
+	    var propValue = props[propName];
+	    if (!obj.hasOwnProperty(propValue)) {
+	      var valuesString = JSON.stringify(Object.keys(obj));
+	      return new Error(_common.errMsg(props, propName, componentName, ', expected one of ' + valuesString + '.'));
+	    }
+	  }
+	  return _common.createChainableTypeChecker(validate);
+	}
+	
+	module.exports = exports['default'];
 
 /***/ }
 /******/ ]);
