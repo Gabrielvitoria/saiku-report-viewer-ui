@@ -901,13 +901,6 @@ textarea.form-control {
   .content-page {
     margin-left: 0 !important;
   }
-  .navbar-nav .open .dropdown-menu {
-    position: absolute;
-    right: 0;
-    left: auto;
-    background: #fff;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-  }
   .wrapper.smaller .side-menu.left {
     margin-left: -75px;
   }

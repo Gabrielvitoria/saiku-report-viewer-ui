@@ -14,12 +14,6 @@
  *   limitations under the License.
  */
 
-import SaikuServer from '../../../adapters/SaikuServer';
-
-class ToolbarModel extends SaikuServer.Model {
-  getItem() {
-    return this.get('item');
-  }
-}
-
-export default ToolbarModel;
+export MenuBar from './MenuBar';
+export Toolbar from './Toolbar';
+export Icon from './Icon';

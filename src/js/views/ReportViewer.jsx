@@ -21,9 +21,11 @@ import {
   Input,
   Button
 } from 'react-bootstrap';
+import {
+  MenuBar,
+  Toolbar
+} from '../components/saiku/react-saiku';
 import Wrapper from '../components/saiku/Wrapper';
-import MenuBar from '../components/saiku/MenuBar/MenuBar';
-import Toolbar from '../components/saiku/Toolbar/Toolbar';
 import Report from '../components/saiku/Report/Report';
 
 class ReportViewer extends React.Component {
@@ -34,12 +36,12 @@ class ReportViewer extends React.Component {
    * Input data that is passed into the component can be accessed by `render()`
    * via this.props.
    *
-   * @return {HTMLElement|Node|String} An image the company.
+   * @return {HTMLElement|Node|String} Report viewer.
    */
   render() {
     return (
       <Wrapper isOpenSidebar>
-        <MenuBar logo block />
+        <MenuBar />
         <Toolbar />
         <div className="content-box m-b-0 b-r-0">
           <form className="form-horizontal">
