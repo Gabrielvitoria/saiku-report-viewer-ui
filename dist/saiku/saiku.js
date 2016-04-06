@@ -24838,13 +24838,13 @@
 	      startDate: (0, _moment2.default)()
 	    };
 	
-	    (0, _reactAutobind2.default)(_this, 'handleChange');
+	    (0, _reactAutobind2.default)(_this, 'onChangeDate');
 	    return _this;
 	  }
 	
 	  _createClass(ReportViewer, [{
-	    key: 'handleChange',
-	    value: function handleChange(date) {
+	    key: 'onChangeDate',
+	    value: function onChangeDate(date) {
 	      this.setState({
 	        startDate: date
 	      });
@@ -24877,13 +24877,8 @@
 	              type: 'text',
 	              label: 'Sample String',
 	              labelClassName: 'col-md-1',
-	              wrapperClassName: 'col-md-5'
-	            }),
-	            _react2.default.createElement(_reactBootstrap.Input, {
-	              type: 'textarea',
-	              label: 'Boolean Param',
-	              labelClassName: 'col-md-1',
-	              wrapperClassName: 'col-md-5'
+	              wrapperClassName: 'col-md-5',
+	              ref: 'sample-string'
 	            }),
 	            _react2.default.createElement(
 	              _FormGroup2.default,
@@ -24899,7 +24894,12 @@
 	                _react2.default.createElement(
 	                  'div',
 	                  { className: 'checkbox' },
-	                  _react2.default.createElement(_reactBootstrap.Input, { type: 'checkbox', label: ' ', standalone: true })
+	                  _react2.default.createElement(_reactBootstrap.Input, {
+	                    type: 'checkbox',
+	                    label: ' ',
+	                    ref: 'boolean-param',
+	                    standalone: true
+	                  })
 	                )
 	              )
 	            ),
@@ -24916,8 +24916,9 @@
 	                { md: 5 },
 	                _react2.default.createElement(_reactDatepicker2.default, {
 	                  className: 'form-control',
+	                  ref: 'date',
 	                  selected: this.state.startDate,
-	                  onChange: this.handleChange
+	                  onChange: this.onChangeDate
 	                })
 	              )
 	            )
@@ -24934,7 +24935,8 @@
 	              { md: 6 },
 	              _react2.default.createElement(_reactBootstrap.Input, {
 	                type: 'checkbox',
-	                label: 'Auto-Update on selection'
+	                label: 'Auto-Update on selection',
+	                ref: 'auto-Update'
 	              })
 	            ),
 	            _react2.default.createElement(

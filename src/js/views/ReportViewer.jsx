@@ -40,10 +40,10 @@ class ReportViewer extends React.Component {
       startDate: moment()
     };
 
-    autoBind(this, 'handleChange');
+    autoBind(this, 'onChangeDate');
   }
 
-  handleChange(date) {
+  onChangeDate(date) {
     this.setState({
       startDate: date
     });
@@ -69,18 +69,18 @@ class ReportViewer extends React.Component {
               label="Sample String"
               labelClassName="col-md-1"
               wrapperClassName="col-md-5"
-            />
-            <Input
-              type="textarea"
-              label="Boolean Param"
-              labelClassName="col-md-1"
-              wrapperClassName="col-md-5"
+              ref="sample-string"
             />
             <FormGroup>
               <label className="control-label col-md-1">Boolean Param</label>
               <Col md={5}>
                 <div className="checkbox">
-                  <Input type="checkbox" label=" " standalone />
+                  <Input
+                    type="checkbox"
+                    label=" "
+                    ref="boolean-param"
+                    standalone
+                  />
                 </div>
               </Col>
             </FormGroup>
@@ -89,8 +89,9 @@ class ReportViewer extends React.Component {
               <Col md={5}>
                 <DatePicker
                   className="form-control"
+                  ref="date"
                   selected={this.state.startDate}
-                  onChange={this.handleChange}
+                  onChange={this.onChangeDate}
                 />
               </Col>
             </FormGroup>
@@ -102,6 +103,7 @@ class ReportViewer extends React.Component {
               <Input
                 type="checkbox"
                 label="Auto-Update on selection"
+                ref="auto-Update"
               />
             </Col>
             <Col md={6}>
