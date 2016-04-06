@@ -15,20 +15,39 @@
  */
 
 import React from 'react';
+import autoBind from 'react-autobind';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
 import {
   Row,
   Col,
   Input,
   Button
 } from 'react-bootstrap';
+import FormGroup from '../components/bootstrap/FormGroup';
 import {
+  Wrapper,
   MenuBar,
-  Toolbar
+  Toolbar,
+  Report
 } from '../components/saiku/react-saiku';
-import Wrapper from '../components/saiku/Wrapper';
-import Report from '../components/saiku/Report/Report';
 
 class ReportViewer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      startDate: moment()
+    };
+
+    autoBind(this, 'handleChange');
+  }
+
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    });
+  }
 
   /**
    * React components implement the `render()` method that takes input data and
@@ -57,12 +76,24 @@ class ReportViewer extends React.Component {
               labelClassName="col-md-1"
               wrapperClassName="col-md-5"
             />
-            <Input
-              type="text"
-              label="The Date"
-              labelClassName="col-md-1"
-              wrapperClassName="col-md-5"
-            />
+            <FormGroup>
+              <label className="control-label col-md-1">Boolean Param</label>
+              <Col md={5}>
+                <div className="checkbox">
+                  <Input type="checkbox" label=" " standalone />
+                </div>
+              </Col>
+            </FormGroup>
+            <FormGroup>
+              <label className="control-label col-md-1">The Date</label>
+              <Col md={5}>
+                <DatePicker
+                  className="form-control"
+                  selected={this.state.startDate}
+                  onChange={this.handleChange}
+                />
+              </Col>
+            </FormGroup>
           </form>
         </div>
         <div className="content-box m-b-0 b-t-0 b-r-0">

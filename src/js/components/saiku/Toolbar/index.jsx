@@ -53,6 +53,11 @@ class Toolbar extends React.Component {
           <ButtonGroup>
             <Input type="select" standalone>
               <option value="zoom-100">100%</option>
+              <option value="zoom-75">75%</option>
+              <option value="zoom-50">50%</option>
+              <option value="zoom-25">25%</option>
+              <option value="zoom-10">10%</option>
+              <option value="zoom-5">5%</option>
             </Input>
           </ButtonGroup>
         </ButtonToolbar>

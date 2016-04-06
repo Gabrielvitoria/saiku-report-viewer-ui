@@ -14,6 +14,8 @@
  *   limitations under the License.
  */
 
+export Wrapper from './Wrapper';
+export Icon from './Icon';
 export MenuBar from './MenuBar';
 export Toolbar from './Toolbar';
-export Icon from './Icon';
+export Report from './Report';

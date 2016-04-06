@@ -21,6 +21,7 @@ import ReportViewer from './views/ReportViewer';
 
 // webpack loaders
 import '../../index.html';
+import 'react-datepicker/dist/react-datepicker.css';
 import '../../dist/saiku/saiku.css';
 
 /**
