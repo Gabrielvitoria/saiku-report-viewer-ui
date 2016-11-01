@@ -2,6 +2,7 @@
 
 module.exports = {
   source: {
+    bowerDir: './bower_components',
     html: './src/index.html',
     js: './src/js/**/*.js',
     styl: './src/styl/**/*.styl',
@@ -23,6 +24,7 @@ module.exports = {
     css: './build/css',
     js: './build/js',
     img: './build/img',
+    fonts: './build/fonts'
   },
 
   deploy: {

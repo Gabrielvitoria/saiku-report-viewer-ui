@@ -5,7 +5,7 @@ var gulp    = require('gulp');
 var plumber = require('gulp-plumber');
 var paths   = require('../paths');
 
-// Copy HTML file to folder `build/`
+// Copy HTML file to `build/` folder
 module.exports = gulp.task('html', function() {
   return gulp.src(paths.source.html)
     .pipe(plumber())
