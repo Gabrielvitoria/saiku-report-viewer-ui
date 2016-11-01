@@ -1,45 +1,31 @@
-/**
- *   Copyright 2016 OSBI Ltd
- *
- *   Licensed under the Apache License, Version 2.0 (the "License");
- *   you may not use this file except in compliance with the License.
- *   You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- *   Unless required by applicable law or agreed to in writing, software
- *   distributed under the License is distributed on an "AS IS" BASIS,
- *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *   See the License for the specific language governing permissions and
- *   limitations under the License.
- */
-
 'use strict';
 
 module.exports = {
   source: {
-    bowerDir: './bower_components',
-    react: ['./src/js/saiku/**/*.js', './src/js/saiku/**/*.jsx'],
-    img: './src/images/**/*',
-    styl: {
-      all: './src/styl/**/*',
-      folder: './src/styl/'
-    },
+    html: './src/index.html',
+    js: './src/js/**/*.js',
+    styl: './src/styl/**/*.styl',
+    img: './src/img/**/*',
     files: {
-      styl: './src/styl/saiku.styl',
-      css: './dist/saiku/saiku.css',
+      styl: './src/styl/main.styl'
     }
   },
 
+  browserSync: {
+    html: './build/**/*.html',
+    css: './build/css/**/*.css',
+    js: './build/js/**/*.js',
+    img: './build/img/**/*'
+  },
+
   build: {
-    app: './dist/saiku',
-    css: './dist/assets/css',
-    fonts: './dist/assets/fonts',
-    img: './dist/assets/images',
-    js: './dist/assets/js'
+    html: './build/',
+    css: './build/css',
+    js: './build/js',
+    img: './build/img',
   },
 
   deploy: {
-    pages: './docs/**/*'
+    pages: './build/**/*'
   }
 };
