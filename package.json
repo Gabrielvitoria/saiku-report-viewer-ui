@@ -1,11 +1,42 @@
 {
+  "name": "saiku-report-viewer-ui",
+  "description": "Saiku Report Viewer User Interface",
+  "homepage": "http://www.meteorite.bi",
+  "version": "0.1.0",
+  "author": {
+    "name": "Meteorite BI",
+    "email": "info@meteorite.bi",
+    "web": "http://www.meteorite.bi"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OSBI/saiku-report-viewer-ui.git"
+  },
+  "keywords": [
+    "analytics-client",
+    "business-intelligence",
+    "saiku-report",
+    "saiku-report-viewer",
+    "saiku-report-viewer-ui",
+    "user-interface"
+  ],
+  "bugs": {
+    "url": "http://jira.meteorite.bi"
+  },
+  "main": "index.js",
   "scripts": {
     "clean": "rm -r node_modules/; rm -r build/"
+  },
+  "engines": {
+    "node": ">=0.10.x",
+    "npm": ">=1.3.x"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.1",
     "browser-sync": "^2.17.5",
     "gulp": "^3.9.1",
+    "gulp-bower": "0.0.13",
     "gulp-cache": "^0.4.5",
     "gulp-concat": "^2.6.0",
     "gulp-csscomb": "^3.0.8",
@@ -16,8 +47,5 @@
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "poststylus": "^0.2.3"
-  },
-  "dependencies": {
-    "gulp-bower": "0.0.13"
   }
 }

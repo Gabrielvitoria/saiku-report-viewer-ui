@@ -1,4 +1,4 @@
-/**
+/*!
  *   Copyright 2016 OSBI Ltd
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,36 +14,7 @@
  *   limitations under the License.
  */
 
-'use strict';
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans:400,700");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300");
 
-module.exports = {
-  source: {
-    bowerDir: './bower_components',
-    html: './src/index.html',
-    js: './src/js/**/*.js',
-    styl: './src/styl/**/*.styl',
-    img: './src/img/**/*',
-    files: {
-      styl: './src/styl/main.styl'
-    }
-  },
-
-  browserSync: {
-    html: './build/**/*.html',
-    css: './build/css/**/*.css',
-    js: './build/js/**/*.js',
-    img: './build/img/**/*'
-  },
-
-  build: {
-    html: './build/',
-    css: './build/css',
-    js: './build/js',
-    img: './build/img',
-    fonts: './build/fonts'
-  },
-
-  deploy: {
-    pages: './build/**/*'
-  }
-};
+@import "_variables"

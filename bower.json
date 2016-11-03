@@ -1,5 +1,10 @@
 {
   "name": "saiku-report-viewer-ui",
+  "description": "Saiku Report Viewer User Interface",
+  "homepage": "http://www.meteorite.bi",
+  "version": "0.1.0",
+  "author": "Meteorite BI",
+  "license": "Apache-2.0",
   "ignore": [
     "**/.*",
     "node_modules",
