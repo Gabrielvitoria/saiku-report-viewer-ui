@@ -22,7 +22,7 @@ module.exports = {
     html: './src/index.html',
     js: './src/js/**/*.js',
     styl: './src/styl/**/*.styl',
-    img: './src/img/**/*',
+    img: './src/images/**/*',
     files: {
       styl: './src/styl/saiku.styl'
     }
@@ -32,7 +32,7 @@ module.exports = {
     html: './build/**/*.html',
     css: './build/css/**/*.css',
     js: './build/js/**/*.js',
-    img: './build/img/**/*'
+    img: './build/images/**/*'
   },
 
   build: {
@@ -40,7 +40,7 @@ module.exports = {
     html: './build/',
     css: './build/assets/css',
     js: './build/assets/js',
-    img: './build/assets/img',
+    img: './build/assets/images',
     fonts: './build/assets/fonts'
   },
 
