@@ -24,7 +24,7 @@ module.exports = {
     styl: './src/styl/**/*.styl',
     img: './src/img/**/*',
     files: {
-      styl: './src/styl/main.styl'
+      styl: './src/styl/saiku.styl'
     }
   },
 
@@ -36,11 +36,12 @@ module.exports = {
   },
 
   build: {
+    app: './build/saiku',
     html: './build/',
-    css: './build/css',
-    js: './build/js',
-    img: './build/img',
-    fonts: './build/fonts'
+    css: './build/assets/css',
+    js: './build/assets/js',
+    img: './build/assets/img',
+    fonts: './build/assets/fonts'
   },
 
   deploy: {
