@@ -30,8 +30,8 @@ module.exports = {
 
   browserSync: {
     html: './build/**/*.html',
-    css: './build/css/**/*.css',
-    js: './build/js/**/*.js',
+    css: './build/**/*.css',
+    js: './build/**/*.js',
     img: './build/images/**/*'
   },
 
