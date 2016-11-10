@@ -26,6 +26,6 @@ var paths   = require('../paths');
 module.exports = gulp.task('js', function() {
   return gulp.src(paths.source.js)
     .pipe(plumber())
-    .pipe(uglify())
-    .pipe(gulp.dest(paths.build.js));
+    // .pipe(uglify())
+    .pipe(gulp.dest(paths.build.app));
 });
