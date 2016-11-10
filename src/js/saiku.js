@@ -17,6 +17,7 @@
 // Plugin PDFJS
 
 var PDF_URL = 'http://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf';
+// var PDF_URL = 'http://localhost:8181/cxf/reportviewer/render/test.pdf';
 var DEFAULT_SCALE = 1.72;
 var MIN_SCALE = 0.30;
 var MAX_SCALE = 4.00;
@@ -169,6 +170,29 @@ function onSelectScale(event) {
   queueRenderPage(pageNum);
 }
 document.getElementById('select-scale').addEventListener('click', onSelectScale);
+
+/**
+ * Call toggle toolbar
+ */
+function onToggleToolBar() {
+  if ($('#btn-toggle').hasClass('content-form-hide')) {
+    $('.content-form').show();
+    $('#btn-toggle').removeClass('content-form-hide');
+    $('#btn-toggle').find('.fa').removeClass('fa-angle-double-down').addClass('fa-angle-double-up');
+  }
+  else {
+    $('.content-form').hide();
+    $('#btn-toggle').addClass('content-form-hide');
+    $('#btn-toggle').find('.fa').removeClass('fa-angle-double-up').addClass('fa-angle-double-down');
+  }
+}
+document.getElementById('btn-toggle').addEventListener('click', onToggleToolBar);
+
+function onPrint() {
+}
+document.getElementById('btn-print').addEventListener('click', onPrint);
+
+PDFJS.workerSrc = '../assets/js/pdf.worker.js';
 
 /**
  * Asynchronously downloads PDF
