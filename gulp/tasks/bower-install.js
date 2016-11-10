@@ -73,6 +73,17 @@ gulp.task('respond', ['bower'], function() {
     .pipe(gulp.dest(paths.build.js));
 });
 
+// Call PDFJS
+gulp.task('pdfjs', ['bower'], function() {
+  gulp.src(paths.source.bowerDir + '/pdfjs-dist/build/pdf.js')
+    .pipe(plumber())
+    .pipe(gulp.dest(paths.build.js));
+  gulp.src(paths.source.bowerDir + '/pdfjs-dist/build/pdf.worker.js')
+    .pipe(plumber())
+    .pipe(gulp.dest(paths.build.js));
+});
+
 // Call Bower Install
 module.exports = gulp.task('bower-install',
-  ['bower', 'fontAwesome', 'jquery', 'bootstrap', 'html5shiv', 'respond']);
+  ['bower', 'fontAwesome', 'jquery', 'bootstrap', 'html5shiv',
+   'respond', 'pdfjs']);
