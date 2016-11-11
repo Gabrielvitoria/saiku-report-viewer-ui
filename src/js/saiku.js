@@ -16,8 +16,10 @@
 
 // Plugin PDFJS
 
-var PDF_URL = 'http://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf';
-// var PDF_URL = 'http://localhost:8181/cxf/reportviewer/render/test.pdf';
+// var PDF_URL = 'http://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf';
+var BASE_URL = 'http://localhost:8181/cxf/';
+var FILE_NAME = 'test';
+var PDF_URL = BASE_URL + 'reportviewer/render/' + FILE_NAME + '.pdf';
 var DEFAULT_SCALE = 1.72;
 var MIN_SCALE = 0.30;
 var MAX_SCALE = 4.00;
@@ -188,11 +190,31 @@ function onToggleToolBar() {
 }
 document.getElementById('btn-toggle').addEventListener('click', onToggleToolBar);
 
-function onPrint() {
+/**
+ * Call export PDF
+ */
+function onExportType(type) {
+  var link = document.createElement('a');
+  link.href = BASE_URL + 'reportviewer/render/' + FILE_NAME + '.' + type;
+  link.download = 'file.pdf';
+  link.dispatchEvent(new MouseEvent('click'));
 }
-document.getElementById('btn-print').addEventListener('click', onPrint);
 
-PDFJS.workerSrc = '../assets/js/pdf.worker.js';
+function onExportPDF() {
+  onExportType('pdf');
+}
+document.getElementById('btn-print').addEventListener('click', onExportPDF);
+document.getElementById('menu-export-pdf').addEventListener('click', onExportPDF);
+
+/**
+ * Call export XLS
+ */
+function onExportXLS() {
+  onExportType('xls');
+}
+document.getElementById('menu-export-xls').addEventListener('click', onExportXLS);
+
+// PDFJS.workerSrc = '../assets/js/pdf.worker.js';
 
 /**
  * Asynchronously downloads PDF
