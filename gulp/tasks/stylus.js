@@ -31,8 +31,8 @@ var paths        = require('../paths');
 module.exports = gulp.task('stylus', function() {
   var processors = [
     autoprefixer({ browsers: ['last 3 versions'] }),
-    mqpacker
-    // csswring
+    mqpacker,
+    csswring
   ];
   return gulp.src(paths.source.files.styl)
     .pipe(plumber())

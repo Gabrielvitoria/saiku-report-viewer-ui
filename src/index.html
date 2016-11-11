@@ -34,6 +34,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css">
   <link rel="stylesheet" href="assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="saiku/saiku.css">
 
@@ -72,7 +73,8 @@
                 <li><a href="javascript:void(0);"><i class="fa fa-cog text-custom" aria-hidden="true"></i> Settings</a></li>
                 <li><a href="javascript:void(0);"><i class="fa fa-lock text-custom" aria-hidden="true"></i> Lock screen</a></li>
                 <li class="divider"></li>
-                <li><a href="javascript:void(0);"><i class="fa fa-power-off text-danger" aria-hidden="true"></i> Logout</a></li>
+                <!-- <li><a href="javascript:void(0);"><i class="fa fa-power-off text-danger" aria-hidden="true"></i> Logout</a></li> -->
+                <li><a href="javascript:void(0);"><i class="fa fa-power-off text-custom" aria-hidden="true"></i> Logout</a></li>
               </ul>
             </li>
           </ul>
@@ -150,7 +152,7 @@
           <div class="form-group">
             <label class="control-label col-md-1">The Date</label>
             <div class="col-md-5">
-              <input type="text" class="form-control">
+              <input type="text" class="form-control datepicker" data-date-format="yyyy-mm-dd">
             </div>
           </div>
           <!-- /.form-group -->
@@ -272,6 +274,7 @@
   <!-- JS -->
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/bootstrap-datepicker.min.js"></script>
   <script src="assets/js/pdf.js"></script>
   <script src="saiku/saiku.js"></script>
 </body>

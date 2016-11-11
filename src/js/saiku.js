@@ -226,3 +226,8 @@ PDFJS.getDocument(PDF_URL).then(function(pdf) {
   // Initial/first page rendering
   renderPage(pageNum);
 });
+
+
+$(function() {
+  $('.datepicker').datepicker();
+});

@@ -83,7 +83,17 @@ gulp.task('pdfjs', ['bower'], function() {
     .pipe(gulp.dest(paths.build.js));
 });
 
+// Call Bootstrap Datepicker
+gulp.task('bootstrap-datepicker', ['bower'], function() {
+  gulp.src(paths.source.bowerDir + '/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')
+    .pipe(plumber())
+    .pipe(gulp.dest(paths.build.css));
+  gulp.src(paths.source.bowerDir + '/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')
+    .pipe(plumber())
+    .pipe(gulp.dest(paths.build.js));
+});
+
 // Call Bower Install
 module.exports = gulp.task('bower-install',
   ['bower', 'fontAwesome', 'jquery', 'bootstrap', 'html5shiv',
-   'respond', 'pdfjs']);
+   'respond', 'pdfjs', 'bootstrap-datepicker']);
