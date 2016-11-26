@@ -14,12 +14,24 @@
  *   limitations under the License.
  */
 
-import React from 'react';
-import { render } from 'react-dom';
-import App from './components/App';
+import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
+import Icon from '../Icon';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
-import './index.css';
+class TopbarMenu extends Component {
+  static propTypes = {
+    className: PropTypes.string
+  }
 
-render(<App />, document.querySelector('#main'));
+  render() {
+    return (
+      <div className={classNames('TopbarMenu', this.props.className)}>
+        <a href="#" className="TopbarMenu-btn">
+          <Icon name="th" aria-hidden="true" />
+        </a>
+      </div>
+    )
+  }
+}
+
+export default TopbarMenu;

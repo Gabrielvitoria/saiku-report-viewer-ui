@@ -14,12 +14,18 @@
  *   limitations under the License.
  */
 
-import React from 'react';
-import { render } from 'react-dom';
-import App from './components/App';
+import React, { Component } from 'react';
+import Wrapper from '../Wrapper';
+import Topbar from '../Topbar';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
-import './index.css';
+class App extends Component {
+  render() {
+    return (
+      <Wrapper>
+        <Topbar />
+      </Wrapper>
+    );
+  }
+}
 
-render(<App />, document.querySelector('#main'));
+export default App;

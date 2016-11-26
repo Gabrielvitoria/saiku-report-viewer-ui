@@ -16,17 +16,14 @@
 
 import React, { Component } from 'react';
 import TopbarMenu from './TopbarMenu';
-import Wrapper from '../wrapper/Wrapper';
 import './Topbar.css';
 
 class Topbar extends Component {
   render() {
     return (
-      <Wrapper>
-        <div className="Topbar">
-          <TopbarMenu />
-        </div>
-      </Wrapper>
+      <div className="Topbar">
+        <TopbarMenu />
+      </div>
     )
   }
 }

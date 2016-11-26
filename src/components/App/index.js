@@ -14,26 +14,6 @@
  *   limitations under the License.
  */
 
-import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
-import Icon from '../icon/Icon';
+import App from './App';
 
-class TopbarMenu extends Component {
-  render() {
-    return (
-      <div
-        {...this.props}
-        className={classNames('TopbarMenu', this.props.className)}>
-        <a href="javascript:void(0);" className="TopbarMenu-btn">
-          <Icon name="th" aria-hidden="true" />
-        </a>
-      </div>
-    )
-  }
-}
-
-TopbarMenu.propTypes = {
-  className: PropTypes.string
-};
-
-export default TopbarMenu;
+export default App;

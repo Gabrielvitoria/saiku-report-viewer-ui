@@ -19,20 +19,18 @@ import classNames from 'classnames';
 import './Wrapper.css';
 
 class Wrapper extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node.isRequired
+  }
+
   render() {
     return (
-      <div
-        {...this.props}
-        className={classNames('Wrapper', this.props.className)}>
+      <div className={classNames('Wrapper', this.props.className)}>
         {this.props.children}
       </div>
     )
   }
 }
-
-Wrapper.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node.isRequired
-};
 
 export default Wrapper;

@@ -14,12 +14,6 @@
  *   limitations under the License.
  */
 
-import React from 'react';
-import { render } from 'react-dom';
-import App from './components/App';
+import Wrapper from './Wrapper';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
-import './index.css';
-
-render(<App />, document.querySelector('#main'));
+export default Wrapper;
