@@ -45,9 +45,8 @@
     "url": "http://jira.meteorite.bi"
   },
   "scripts": {
-    "dev": "gulp default && npm run start",
     "start": "react-scripts start",
-    "build": "gulp default && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "clean": "rm -r node_modules; rm -r bower_components; rm -r build; rm -r npm-debug.log"
@@ -64,16 +63,13 @@
     "classnames": "^2.2.5",
     "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
-    "pdfjs-dist": "^1.6.343",
+    "pdfjs-dist": "^1.6.348",
     "react": "^15.4.1",
     "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
     "react-prop-types": "^0.4.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-bower": "0.0.13",
-    "gulp-plumber": "^1.1.0",
     "react-scripts": "0.7.0"
   }
 }
