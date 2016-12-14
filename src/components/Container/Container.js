@@ -1,5 +1,5 @@
 /**
- *   Copyright 2016 OSBI Ltd
+ *   Copyright 2017 OSBI Ltd
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -14,6 +14,32 @@
  *   limitations under the License.
  */
 
-import Wrapper from './Wrapper';
+import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
+import style from './Container.styl';
 
-export default Wrapper;
+class Container extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node.isRequired
+  };
+
+  render() {
+    const {
+      className,
+      children,
+      ...props
+    } = this.props;
+
+    return (
+      <main
+        {...props}
+        className={classNames(style.Container, className)}
+      >
+        {children}
+      </main>
+    );
+  }
+}
+
+export default Container;

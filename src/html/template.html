@@ -1,5 +1,5 @@
 <!--
-  Copyright 2016 OSBI Ltd
+  Copyright 2017 OSBI Ltd
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -13,16 +13,15 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <title>Saiku Report Viewer</title>
-  </head>
-  <body>
-    <div id="main"></div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+  <div data-js="app"></div>
+</body>
 </html>

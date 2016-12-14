@@ -1,5 +1,5 @@
 /**
- *   Copyright 2016 OSBI Ltd
+ *   Copyright 2017 OSBI Ltd
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -16,10 +16,27 @@
 
 import React from 'react';
 import { render } from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 import App from './components/App';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
-import './index.css';
+import './styl/saiku.styl';
 
-render(<App />, document.querySelector('#main'));
+const renderApp = (NextApp) => {
+  render(
+    <AppContainer>
+      <NextApp />
+    </AppContainer>,
+    document.querySelector('[data-js="app"]')
+  );
+};
+
+renderApp(App);
+
+if (module.hot) {
+  module.hot.accept('./components/App', () => {
+    const NextApp = require('./components/App').default;
+    renderApp(NextApp);
+  });
+}

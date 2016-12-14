@@ -14,4 +14,22 @@
  *   limitations under the License.
  */
 
-export { default } from './Topbar.js'
+import React, { Component, PropTypes } from 'react';
+
+import style from './Title.styl';
+
+class Title extends Component {
+  static propTypes = {
+    children: PropTypes.node.isRequired
+  };
+
+  render() {
+    return (
+      <h1 className={style.Title}>
+        {this.props.children}
+      </h1>
+    );
+  }
+}
+
+export default Title;

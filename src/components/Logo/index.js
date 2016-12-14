@@ -1,5 +1,5 @@
 /**
- *   Copyright 2016 OSBI Ltd
+ *   Copyright 2017 OSBI Ltd
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -14,23 +14,4 @@
  *   limitations under the License.
  */
 
-import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
-import './Wrapper.css';
-
-class Wrapper extends Component {
-  static propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.node.isRequired
-  }
-
-  render() {
-    return (
-      <div className={classNames('Wrapper', this.props.className)}>
-        {this.props.children}
-      </div>
-    )
-  }
-}
-
-export default Wrapper;
+export { default } from './Logo.js';

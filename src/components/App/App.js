@@ -1,5 +1,5 @@
 /**
- *   Copyright 2016 OSBI Ltd
+ *   Copyright 2017 OSBI Ltd
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -15,15 +15,14 @@
  */
 
 import React, { Component } from 'react';
-import Wrapper from '../Wrapper';
-import Topbar from '../Topbar';
+import Container from '../Container';
 
 class App extends Component {
   render() {
     return (
-      <Wrapper>
-        <Topbar />
-      </Wrapper>
+      <Container>
+        <h1>App</h1>
+      </Container>
     );
   }
 }

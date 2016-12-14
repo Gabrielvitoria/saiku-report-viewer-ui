@@ -14,4 +14,4 @@
  *   limitations under the License.
  */
 
-export { default } from './Topbar.js'
+export { default } from './Title.js';

@@ -1,5 +1,5 @@
 /**
- *   Copyright 2016 OSBI Ltd
+ *   Copyright 2017 OSBI Ltd
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -18,13 +18,6 @@ import React, { Component, PropTypes } from 'react';
 import { elementType } from 'react-prop-types';
 import classNames from 'classnames';
 
-/**
- * Saiku <Icon /> component.
- * This component should display a icon of Font-Awesome.
- *
- * @example
- * <Icon name="home" />
- */
 class Icon extends Component {
   static propTypes = {
     componentClass: elementType,
@@ -49,10 +42,18 @@ class Icon extends Component {
   }
 
   render() {
-    let {
+    const {
       componentClass: ComponentClass,
-      faClass, name, fixed, spin, pulse,
-      size, rotate, flip, style, ...props
+      faClass,
+      name,
+      fixed,
+      spin,
+      pulse,
+      size,
+      rotate,
+      flip,
+      style,
+      ...props
     } = this.props;
     let className = classNames(this.props.className, {
       [faClass]: true,

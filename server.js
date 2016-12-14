@@ -1,5 +1,5 @@
-/*
- *   Copyright 2016 OSBI Ltd
+/**
+ *   Copyright 2017 OSBI Ltd
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
@@ -14,12 +14,21 @@
  *   limitations under the License.
  */
 
-/* ==========================================================================
-   COMPONENT WRAPPER
-   ========================================================================== */
+'use strict';
 
-.Wrapper {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const config = require('./config/webpack.dev');
+
+new WebpackDevServer(webpack(config), {
+  publicPath: config.output.publicPath,
+  hot: true,
+  historyApiFallback: true,
+  stats: { colors: true }
+}).listen(3000, (err) => {
+  if (err) {
+    return console.log(err);
+  }
+
+  console.log('Listening on http://localhost:3000');
+});

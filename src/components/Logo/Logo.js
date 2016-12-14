@@ -14,4 +14,17 @@
  *   limitations under the License.
  */
 
-export { default } from './Topbar.js'
+import React, { Component, PropTypes } from 'react';
+import logoURI from './logo-small.svg';
+
+class Logo extends Component {
+  render() {
+    return (
+      <img
+        src={logoURI}
+        alt="Saiku Logo" />
+    );
+  }
+}
+
+export default Logo;

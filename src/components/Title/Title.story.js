@@ -14,4 +14,12 @@
  *   limitations under the License.
  */
 
-export { default } from './Topbar.js'
+import { storiesOf } from '@kadira/storybook';
+import React from 'react';
+import Title from './Title';
+
+const stories = storiesOf('Title', module);
+
+stories.add('without props', () => (
+  <Title>Main title</Title>
+));

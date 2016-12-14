@@ -14,4 +14,19 @@
  *   limitations under the License.
  */
 
-export { default } from './Topbar.js'
+'use strict';
+
+const webpackConfigStorybook = require('@kadira/storybook/dist/server/config/defaults/webpack.config');
+const webpackConfigDev = require('../config/webpack.dev');
+
+module.exports = function(config, env) {
+  const newConfig = webpackConfigStorybook(config, env);
+
+  newConfig.eslint = webpackConfigDev.eslint;
+
+  newConfig.module.preLoaders = (newConfig.module.preLoaders || []).concat(webpackConfigDev.module.preLoaders);
+
+  newConfig.module.loaders = (newConfig.module.loaders || []).concat(webpackConfigDev.module.loaders);
+
+  return newConfig;
+};
