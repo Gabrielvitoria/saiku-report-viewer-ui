@@ -19,6 +19,8 @@ import classNames from 'classnames';
 import style from './Container.styl';
 
 class Container extends Component {
+  static displayName = 'Container';
+
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node.isRequired

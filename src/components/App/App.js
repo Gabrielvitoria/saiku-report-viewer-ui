@@ -18,13 +18,17 @@ import React, { Component } from 'react';
 import Container from '../Container';
 import Topbar from '../Topbar';
 import Menubar from '../Menubar';
+import Toolbar from '../Toolbar';
 
 class App extends Component {
+  static displayName = 'App';
+
   render() {
     return (
       <Container>
         <Topbar title="Report Viewer" />
         <Menubar />
+        <Toolbar />
       </Container>
     );
   }

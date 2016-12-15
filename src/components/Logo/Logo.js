@@ -18,6 +18,8 @@ import React, { Component } from 'react';
 import logoURI from './logo-small.png';
 
 class Logo extends Component {
+  static displayName = 'Logo';
+
   render() {
     return (
       <img
