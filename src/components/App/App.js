@@ -17,12 +17,14 @@
 import React, { Component } from 'react';
 import Container from '../Container';
 import Topbar from '../Topbar';
+import Menubar from '../Menubar';
 
 class App extends Component {
   render() {
     return (
       <Container>
         <Topbar title="Report Viewer" />
+        <Menubar />
       </Container>
     );
   }

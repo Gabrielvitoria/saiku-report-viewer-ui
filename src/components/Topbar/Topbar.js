@@ -21,6 +21,8 @@ import {
 import style from './Topbar.styl';
 
 class Topbar extends Component {
+  static displayName = 'Topbar';
+
   static propTypes = {
     title: PropTypes.string.isRequired
   };
@@ -38,7 +40,9 @@ class Topbar extends Component {
           </div>
         </div>
 
-        <Navbar className={style.Topbar_navbar} />
+        <Navbar
+          className={style.Topbar_navbar}
+          role="navigation" />
       </div>
     );
   }
