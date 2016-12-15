@@ -14,17 +14,33 @@
  *   limitations under the License.
  */
 
-import React, { Component } from 'react';
-import TopbarMenu from './TopbarMenu';
-import './Topbar.css';
+import React, { Component, PropTypes } from 'react';
+import {
+  Navbar
+} from 'react-bootstrap';
+import style from './Topbar.styl';
 
 class Topbar extends Component {
+  static propTypes = {
+    title: PropTypes.string.isRequired
+  };
+
   render() {
+    const {
+      title
+    } = this.props;
+
     return (
-      <div className="Topbar">
-        <TopbarMenu />
+      <div className={style.Topbar}>
+        <div className={style.Topbar_title}>
+          <div className="text-center">
+            <a href="#" className={style.Topbar_appTitle}>{title}</a>
+          </div>
+        </div>
+
+        <Navbar className={style.Topbar_navbar} />
       </div>
-    )
+    );
   }
 }
 

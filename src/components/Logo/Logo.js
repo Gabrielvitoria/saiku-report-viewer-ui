@@ -14,8 +14,8 @@
  *   limitations under the License.
  */
 
-import React, { Component, PropTypes } from 'react';
-import logoURI from './logo-small.svg';
+import React, { Component } from 'react';
+import logoURI from './logo-small.png';
 
 class Logo extends Component {
   render() {

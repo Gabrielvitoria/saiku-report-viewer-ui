@@ -14,5 +14,24 @@
  *   limitations under the License.
  */
 
+*
+  outline none !important
+
+html
+  position relative
+  min-height 100%
+  background $light
+
 body
-  padding-top 50px
+  overflow-x hidden
+  margin 0
+  font-family $font-primary
+  color $lightdark
+  background $light
+
+a
+  &:hover
+  &:active
+  &:focus
+    outline 0
+    text-decoration none

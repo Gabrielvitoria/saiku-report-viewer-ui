@@ -16,12 +16,13 @@
 
 import React, { Component } from 'react';
 import Container from '../Container';
+import Topbar from '../Topbar';
 
 class App extends Component {
   render() {
     return (
       <Container>
-        <h1>App</h1>
+        <Topbar title="Report Viewer" />
       </Container>
     );
   }
