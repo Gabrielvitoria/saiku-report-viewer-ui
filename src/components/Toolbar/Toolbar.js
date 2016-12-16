@@ -19,6 +19,7 @@ import {
   Navbar,
   ButtonToolbar,
   ButtonGroup,
+  FormControl,
   Button
 } from 'react-bootstrap';
 import Icon from '../Icon';
@@ -31,7 +32,7 @@ class Toolbar extends Component {
     return (
       <div className={style.Toolbar}>
         <Navbar className={style.Toolbar_navbar} fluid role="navigation">
-          <Navbar.Form>
+          <Navbar.Form pullLeft>
             <ButtonToolbar>
               <ButtonGroup>
                 <Button><Icon name="print" /></Button>
@@ -45,6 +46,19 @@ class Toolbar extends Component {
               <ButtonGroup>
                 <Button><Icon name="search-minus" /></Button>
                 <Button><Icon name="search-plus" /></Button>
+              </ButtonGroup>
+              <ButtonGroup>
+                <FormControl componentClass="select" placeholder="select">
+                  <option value="select">select</option>
+                  <option value="other">...</option>
+                </FormControl>
+              </ButtonGroup>
+            </ButtonToolbar>
+          </Navbar.Form>
+          <Navbar.Form pullRight>
+            <ButtonToolbar>
+              <ButtonGroup>
+                <Button><Icon name="angle-double-down" /></Button>
               </ButtonGroup>
             </ButtonToolbar>
           </Navbar.Form>
