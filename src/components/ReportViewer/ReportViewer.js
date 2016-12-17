@@ -31,7 +31,7 @@ class ReportViewer extends Component {
         <Grid>
           <Row>
             <Col md={10} mdOffset={1}>
-              <div className="content-box m-t-20 b-r-0">
+              <div className={style.ReportViewer_canvas}>
                 <canvas id="report"></canvas>
               </div>
             </Col>
