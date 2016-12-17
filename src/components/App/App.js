@@ -19,6 +19,7 @@ import Container from '../Container';
 import Topbar from '../Topbar';
 import Menubar from '../Menubar';
 import Toolbar from '../Toolbar';
+import ReportViewer from '../ReportViewer';
 
 class App extends Component {
   static displayName = 'App';
@@ -29,6 +30,7 @@ class App extends Component {
         <Topbar title="Report Viewer" />
         <Menubar />
         <Toolbar />
+        <ReportViewer />
       </Container>
     );
   }

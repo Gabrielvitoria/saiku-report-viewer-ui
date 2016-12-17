@@ -14,4 +14,4 @@
  *   limitations under the License.
  */
 
-export { default } from './Toolbar.js';
+export { default } from './ReportViewer.js';

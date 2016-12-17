@@ -14,4 +14,32 @@
  *   limitations under the License.
  */
 
-export { default } from './Toolbar.js';
+import React, { Component } from 'react';
+import {
+  Grid,
+  Row,
+  Col
+} from 'react-bootstrap';
+import style from './ReportViewer.styl';
+
+class ReportViewer extends Component {
+  static displayName = 'ReportViewer';
+
+  render() {
+    return (
+      <div className={style.ReportViewer}>
+        <Grid>
+          <Row>
+            <Col md={10} mdOffset={1}>
+              <div className="content-box m-t-20 b-r-0">
+                <canvas id="report"></canvas>
+              </div>
+            </Col>
+          </Row>
+        </Grid>
+      </div>
+    );
+  }
+}
+
+export default ReportViewer;
