@@ -66,7 +66,7 @@ class ReportForm extends Component {
             <Col md={3}>
               <FormGroup controlId="formAutoUpdate">
                 <Col mdOffset={1}>
-                  <Checkbox>Remember me</Checkbox>
+                  <Checkbox>Auto-Update on selection</Checkbox>
                 </Col>
               </FormGroup>
             </Col>
