@@ -14,10 +14,4 @@
  *   limitations under the License.
  */
 
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans:400,700")
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300")
-
-@import '_variables'
-@import '_core'
-@import '_helpers'
-@import '_bootstrap-custom'
+export { default } from './ReportForm.js';

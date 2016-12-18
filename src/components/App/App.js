@@ -19,6 +19,7 @@ import Container from '../Container';
 import Topbar from '../Topbar';
 import Menubar from '../Menubar';
 import Toolbar from '../Toolbar';
+import ReportForm from '../ReportForm';
 import ReportViewer from '../ReportViewer';
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
       <Container>
         <Topbar title="Report Viewer" />
         <Menubar />
+        <ReportForm />
         <Toolbar />
         <ReportViewer />
       </Container>
