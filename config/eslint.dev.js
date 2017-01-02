@@ -30,6 +30,7 @@ module.exports = merge(core, {
     'eqeqeq': ['warn', 'allow-null'],
     'guard-for-in': 'warn',
     'new-parens': 'warn',
+    'no-console': 'off',
     'no-array-constructor': 'warn',
     'no-caller': 'warn',
     'no-cond-assign': ['warn', 'always'],

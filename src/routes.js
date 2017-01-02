@@ -15,28 +15,9 @@
  */
 
 import React from 'react';
-import { render } from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import Root from './containers/Root';
+import { Route } from 'react-router';
+import Main from './components/Main';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
-import './styl/saiku.styl';
-
-const renderApp = (NewRoot) => {
-  render(
-    <AppContainer>
-      <NewRoot />
-    </AppContainer>,
-    document.querySelector('[data-js="app"]')
-  );
-};
-
-renderApp(Root);
-
-if (module.hot) {
-  module.hot.accept('./containers/Root', () => {
-    const NewRoot = require('./containers/Root').default;
-    renderApp(NewRoot);
-  });
-}
+export default (
+  <Route path="/" component={Main} />
+);
