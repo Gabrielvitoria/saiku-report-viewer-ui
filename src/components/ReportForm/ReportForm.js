@@ -15,6 +15,8 @@
  */
 
 import React, { Component } from 'react';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
 import {
   Col,
   Row,
@@ -26,9 +28,24 @@ import {
   Button
 } from 'react-bootstrap';
 import style from './ReportForm.styl';
+import 'react-datepicker/dist/react-datepicker.css';
 
 class ReportForm extends Component {
-  static displayName = 'ReportForm';
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      startDate: moment()
+    };
+
+    this.onChangeDate = this.onChangeDate.bind(this);
+  }
+
+  onChangeDate(date) {
+    this.setState({
+      startDate: date
+    });
+  }
 
   render() {
     return (
@@ -56,7 +73,16 @@ class ReportForm extends Component {
                 The Date
               </Col>
               <Col md={5}>
-                <FormControl type="text" />
+                <DatePicker
+                  className="form-control"
+                  ref="date"
+                  dropdownMode="select"
+                  selected={this.state.startDate}
+                  onChange={this.onChangeDate}
+                  peekNextMonth
+                  showMonthDropdown
+                  showYearDropdown
+                />
               </Col>
             </FormGroup>
           </Form>
