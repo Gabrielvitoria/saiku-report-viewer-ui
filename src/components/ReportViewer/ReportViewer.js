@@ -23,8 +23,6 @@ import {
 import style from './ReportViewer.styl';
 
 class ReportViewer extends Component {
-  static displayName = 'ReportViewer';
-
   render() {
     return (
       <div className={style.ReportViewer}>

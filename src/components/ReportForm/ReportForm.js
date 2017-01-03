@@ -15,6 +15,7 @@
  */
 
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import {
@@ -48,8 +49,12 @@ class ReportForm extends Component {
   }
 
   render() {
+    const showForm = this.props.showForm
+      ? style.ReportForm_showForm
+      : style.ReportForm_hideForm;
+
     return (
-      <div className={style.ReportForm}>
+      <div className={classNames(style.ReportForm, showForm)}>
         <div className={style.ReportForm_container}>
           <Form horizontal>
             <FormGroup controlId="formSampleString">

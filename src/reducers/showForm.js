@@ -14,13 +14,13 @@
  *   limitations under the License.
  */
 
-function filter(state = '', action) {
+function showForm(state = false, action) {
   switch(action.type) {
-    case 'FILTER_PRODUCT':
-      return action.filter
+    case 'SHOW_REPORT_FORM':
+      return action.showForm
     default:
       return state;
   }
 }
 
-export default filter;
+export default showForm;

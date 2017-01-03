@@ -23,15 +23,18 @@ import ReportForm from '../ReportForm';
 import ReportViewer from '../ReportViewer';
 
 class App extends Component {
-  static displayName = 'App';
-
   render() {
+    const {
+      showForm,
+      ...props
+    } = this.props;
+
     return (
       <Container>
         <Topbar title="Report Viewer" />
         <Menubar />
-        <ReportForm />
-        <Toolbar />
+        <ReportForm showForm={showForm} {...props} />
+        <Toolbar showForm={showForm} {...props} />
         <ReportViewer />
       </Container>
     );

@@ -21,7 +21,7 @@ import App from '../App';
 
 function mapStateToProps(state) {
   return {
-    filter: state.filter
+    showForm: state.showForm
   }
 }
 

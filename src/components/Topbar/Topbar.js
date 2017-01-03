@@ -21,8 +21,6 @@ import {
 import style from './Topbar.styl';
 
 class Topbar extends Component {
-  static displayName = 'Topbar';
-
   static propTypes = {
     title: PropTypes.string.isRequired
   };

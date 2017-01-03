@@ -26,9 +26,21 @@ import Icon from '../Icon';
 import style from './Toolbar.styl';
 
 class Toolbar extends Component {
-  static displayName = 'Toolbar';
+  constructor(props) {
+    super(props);
+
+    this.onShowForm = this.onShowForm.bind(this);
+  }
+
+  onShowForm() {
+    const showForm = !this.props.showForm ? true: false;
+
+    this.props.showReportForm(showForm);
+  }
 
   render() {
+    const showForm = !this.props.showForm;
+
     return (
       <div className={style.Toolbar}>
         <Navbar className={style.Toolbar_navbar} fluid role="navigation">
@@ -58,7 +70,11 @@ class Toolbar extends Component {
           <Navbar.Form pullRight>
             <ButtonToolbar>
               <ButtonGroup>
-                <Button><Icon name="angle-double-down" /></Button>
+                <Button onClick={this.onShowForm}>
+                  <Icon
+                    name={showForm ? 'angle-double-down' : 'angle-double-up'}
+                  />
+                </Button>
               </ButtonGroup>
             </ButtonToolbar>
           </Navbar.Form>

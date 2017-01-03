@@ -26,8 +26,6 @@ import Icon from '../Icon';
 import style from './Menubar.styl';
 
 class Menubar extends Component {
-  static displayName = 'Menubar';
-
   render() {
     return (
       <div className={style.Menubar}>

@@ -23,7 +23,7 @@ import { hashHistory } from 'react-router';
 import rootReducer from '../reducers/index';
 
 const defaultState = {
-  filter: ''
+  showForm: false
 };
 
 const enhancers = compose(

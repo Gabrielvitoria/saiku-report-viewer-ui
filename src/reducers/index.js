@@ -16,10 +16,10 @@
 
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import filter from './filter';
+import showForm from './showForm';
 
 const rootReducer = combineReducers({
-  filter,
+  showForm,
   routing: routerReducer
 });
 

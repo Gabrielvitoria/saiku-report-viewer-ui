@@ -19,8 +19,6 @@ import { elementType } from 'react-prop-types';
 import classNames from 'classnames';
 
 class Icon extends Component {
-  static displayName = 'Icon';
-
   static propTypes = {
     componentClass: elementType,
     className: PropTypes.string,

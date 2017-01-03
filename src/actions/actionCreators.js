@@ -14,9 +14,9 @@
  *   limitations under the License.
  */
 
-export function filterProduct(filter) {
+export function showReportForm(showForm) {
   return {
-    type: 'FILTER_PRODUCT',
-    filter
+    type: 'SHOW_REPORT_FORM',
+    showForm
   }
 }
