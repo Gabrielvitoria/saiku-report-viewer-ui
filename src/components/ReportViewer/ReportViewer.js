@@ -20,7 +20,11 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
+import PDF from 'react-pdfjs';
 import style from './ReportViewer.styl';
+
+const PDF_SAMPLE_FILE =
+  'http://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf';
 
 class ReportViewer extends Component {
   render() {
@@ -30,7 +34,11 @@ class ReportViewer extends Component {
           <Row>
             <Col md={10} mdOffset={1}>
               <div className={style.ReportViewer_canvas}>
-                <canvas id="report"></canvas>
+                <PDF
+                  file={PDF_SAMPLE_FILE}
+                  page={1}
+                  scale={1}
+                />
               </div>
             </Col>
           </Row>

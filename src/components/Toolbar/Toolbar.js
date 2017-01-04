@@ -33,7 +33,7 @@ class Toolbar extends Component {
   }
 
   onShowForm() {
-    const showForm = !this.props.showForm ? true: false;
+    const showForm = !this.props.showForm ? true : false;
 
     this.props.showReportForm(showForm);
   }
