@@ -32,14 +32,14 @@ class Menubar extends Component {
         <Navbar className={style.Menubar_navbar} fluid role="navigation">
           <Nav className={style.Menubar_nav}>
             <NavDropdown eventKey={1} title="Report" id="dropdown-report">
-              <MenuItem eventKey={1.1}>
-                <Icon name="file-text-o" /> New
+              <MenuItem eventKey={1.1} onClick={this.props.newReport}>
+                <Icon name="file-text-o"/> New
               </MenuItem>
-              <MenuItem eventKey={1.2}>
-                <Icon name="folder-open-o" /> Open
+              <MenuItem eventKey={1.2} onClick={this.props.openReport}>
+                <Icon name="folder-open-o"/> Open
               </MenuItem>
-              <MenuItem eventKey={1.3}>
-                <Icon name="save" /> Save
+              <MenuItem eventKey={1.3} onClick={this.props.saveReport}>
+                <Icon name="save"/> Save
               </MenuItem>
             </NavDropdown>
             <NavDropdown eventKey={2} title="Export" id="dropdown-export">

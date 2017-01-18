@@ -20,3 +20,22 @@ export function showReportForm(showForm) {
     showForm
   }
 }
+
+export function newReport() {
+  return {
+    type: 'NEW_REPORT'
+  }
+}
+
+export function openReport() {
+  return {
+    type: 'OPEN_REPORT'
+  }
+}
+
+export function saveReport(report) {
+  return {
+    type: 'SAVE_REPORT',
+    report
+  }
+}

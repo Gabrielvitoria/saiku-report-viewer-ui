@@ -32,10 +32,10 @@ class App extends Component {
     return (
       <Container>
         <Topbar title="Report Viewer" />
-        <Menubar />
+        <Menubar {...props} />
         <ReportForm showForm={showForm} {...props} />
         <Toolbar showForm={showForm} {...props} />
-        <ReportViewer />
+        <ReportViewer {...props} />
       </Container>
     );
   }

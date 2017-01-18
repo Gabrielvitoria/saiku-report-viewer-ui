@@ -14,15 +14,32 @@
  *   limitations under the License.
  */
 
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-import showForm from './showForm';
-import reports from './reports';
+function newReport(state = false, action) {
+  console.log('new report');
+  return state;
+}
 
-const rootReducer = combineReducers({
-  showForm,
-  reports,
-  routing: routerReducer
-});
+function openReport(state = false, action) {
+  console.log('open report');
+  return state;
+}
 
-export default rootReducer;
+function saveReport(state = false, action) {
+  console.log('save report');
+  return state;
+}
+
+function reportActions(state = false, action) {
+  switch(action.type) {
+    case 'NEW_REPORT':
+      return newReport(state, action);
+    case 'OPEN_REPORT':
+      return openReport(state, action);
+    case 'SAVE_REPORT':
+      return saveReport(state, action);
+    default:
+      return state;
+  }
+}
+
+export default reportActions;
