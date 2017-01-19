@@ -20,12 +20,33 @@ import {
   Nav,
   NavItem,
   NavDropdown,
-  MenuItem
+  MenuItem,
+  Modal,
+  Button
 } from 'react-bootstrap';
 import Icon from '../Icon';
 import style from './Menubar.styl';
 
 class Menubar extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      modalIsOpen: false
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
   render() {
     return (
       <div className={style.Menubar}>
@@ -35,7 +56,7 @@ class Menubar extends Component {
               <MenuItem eventKey={1.1} onClick={this.props.newReport}>
                 <Icon name="file-text-o"/> New
               </MenuItem>
-              <MenuItem eventKey={1.2} onClick={this.props.openReport}>
+              <MenuItem eventKey={1.2} onClick={this.openModal}>
                 <Icon name="folder-open-o"/> Open
               </MenuItem>
               <MenuItem eventKey={1.3} onClick={this.props.saveReport}>
@@ -60,6 +81,19 @@ class Menubar extends Component {
             <NavItem eventKey={4} href="#">Help</NavItem>
           </Nav>
         </Navbar>
+        {/* The modal show when user clicks the open report menu item */}
+        <Modal show={this.state.modalIsOpen} onHide={this.closeModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Open Report</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h4>Text in a modal</h4>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.closeModal}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }
