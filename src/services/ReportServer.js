@@ -14,22 +14,17 @@
  *   limitations under the License.
  */
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../actions/actionCreators';
-import App from '../App';
+import axios from 'axios';
+import config from '../config';
 
-function mapStateToProps(state) {
-  return {
-    showForm: state.showForm,
-    reports: state.reports,
+class ReportServer {
+  list(callback) {
+    axios.get(config.REPORT_SERVER_BASE_URL + '/list').then(callback);
+  }
+
+  open(reportId) {
+    return config.REPORT_SERVER_BASE_URL + '/render/' + reportId + '.pdf';
   }
 }
 
-function mapDispachToProps(dispatch) {
-  return bindActionCreators(actionCreators, dispatch);
-}
-
-const Main = connect(mapStateToProps, mapDispachToProps)(App);
-
-export default Main;
+export default ReportServer;

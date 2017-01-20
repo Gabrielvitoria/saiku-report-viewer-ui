@@ -21,12 +21,19 @@ import {
   Col
 } from 'react-bootstrap';
 import PDF from 'react-pdfjs';
+import ReportServer from '../../services/ReportServer';
 import style from './ReportViewer.styl';
 
 const PDF_SAMPLE_FILE =
   'http://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf';
 
 class ReportViewer extends Component {
+  constructor() {
+    super();
+
+    this.server = new ReportServer();
+  }
+
   render() {
     return (
       <div className={style.ReportViewer}>
@@ -35,7 +42,7 @@ class ReportViewer extends Component {
             <Col md={10} mdOffset={1}>
               <div className={style.ReportViewer_canvas}>
                 <PDF
-                  file={PDF_SAMPLE_FILE}
+                  file={this.props.reports.reportToOpen ? this.server.open(this.props.reports.reportToOpen) : PDF_SAMPLE_FILE}
                   page={1}
                   scale={1}
                 />

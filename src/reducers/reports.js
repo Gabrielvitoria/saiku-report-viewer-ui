@@ -14,23 +14,24 @@
  *   limitations under the License.
  */
 
-function newReport(state = false, action) {
+function newReport(state = {}, action) {
   console.log('new report');
   return state;
 }
 
-function openReport(state = false, action) {
-  // TODO: Implement the report opening here
-  console.log('open report - ' + action.report);
-  return state;
+function openReport(state = {}, action) {
+  return {
+    ...state,
+    reportToOpen: action.report
+  };
 }
 
-function saveReport(state = false, action) {
+function saveReport(state = {}, action) {
   console.log('save report');
   return state;
 }
 
-function reportActions(state = false, action) {
+function reportActions(state = {}, action) {
   switch(action.type) {
     case 'NEW_REPORT':
       return newReport(state, action);

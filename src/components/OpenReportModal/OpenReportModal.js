@@ -17,10 +17,12 @@
 import React, { Component } from 'react';
 import {
   Modal,
-  Button
+  Button,
+  ListGroup,
+  ListGroupItem
 } from 'react-bootstrap';
-import axios from 'axios';
 import style from './OpenReportModal.styl';
+import ReportServer from '../../services/ReportServer';
 
 class OpenReportModal extends Component {
   constructor() {
@@ -28,8 +30,16 @@ class OpenReportModal extends Component {
 
     this.state = {
       show: false,
+      selectedReport: null,
       reports: []
     };
+
+    this.server = new ReportServer();
+
+    this.render       = this.render.bind(this);
+    this.renderReport = this.renderReport.bind(this);
+    this.selectReport = this.selectReport.bind(this);
+    this.listReports  = this.listReports.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -39,24 +49,26 @@ class OpenReportModal extends Component {
   }
 
   componentDidMount() {
-    // TODO: Implement the report listing from the correct source
-    axios.get('https://jsonplaceholder.typicode.com/posts').then(res => {
+    this.listReports();
+  }
+
+  listReports() {
+    this.server.list(res => {
       this.setState({reports: res.data});
     });
-
-    this.render = this.render.bind(this);
-    this.renderReport = this.renderReport.bind(this);
-    this.selectReport = this.selectReport.bind(this);
   }
 
-  selectReport(report) {
-    this.selectedReport = report;
-    console.log('selectReport', report);
+  selectReport(reportId) {
+    this.setState({selectedReport: reportId});
   }
 
-  renderReport(data, i) {
+  renderReport(reportId, i) {
     return (
-      <li key={i} onClick={this.selectReport.bind(null, data.title)}>{data.title}</li>
+      <ListGroupItem href="#" key={i} 
+        onClick={this.selectReport.bind(null, reportId)}
+        active={reportId === this.state.selectedReport}>
+        {reportId}
+      </ListGroupItem>
     );
   }
 
@@ -67,10 +79,12 @@ class OpenReportModal extends Component {
           <Modal.Title>Open Report</Modal.Title>
         </Modal.Header>
         <Modal.Body bsClass={style.modal_body}>
-          <ul>{this.state.reports.map(this.renderReport)}</ul>
+          <ListGroup>
+            {this.state.reports.map(this.renderReport)}
+          </ListGroup>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={e => {this.props.onSelectReport(this.selectedReport)}}>Select</Button>
+          <Button onClick={this.props.onSelectReport.bind(null, this.state.selectedReport)}>Select</Button>
           <Button onClick={this.props.onHide}>Close</Button>
         </Modal.Footer>
       </Modal>      

@@ -14,22 +14,8 @@
  *   limitations under the License.
  */
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../actions/actionCreators';
-import App from '../App';
+const config = {
+  REPORT_SERVER_BASE_URL: 'http://localhost:8181/cxf/reportviewer'
+};
 
-function mapStateToProps(state) {
-  return {
-    showForm: state.showForm,
-    reports: state.reports,
-  }
-}
-
-function mapDispachToProps(dispatch) {
-  return bindActionCreators(actionCreators, dispatch);
-}
-
-const Main = connect(mapStateToProps, mapDispachToProps)(App);
-
-export default Main;
+export default config;
