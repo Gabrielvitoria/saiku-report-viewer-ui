@@ -20,7 +20,8 @@ function newReport(state = false, action) {
 }
 
 function openReport(state = false, action) {
-  console.log('open report');
+  // TODO: Implement the report opening here
+  console.log('open report - ' + action.report);
   return state;
 }
 

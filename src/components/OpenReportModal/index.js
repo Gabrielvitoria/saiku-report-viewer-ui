@@ -14,29 +14,4 @@
  *   limitations under the License.
  */
 
-export function showReportForm(showForm) {
-  return {
-    type: 'SHOW_REPORT_FORM',
-    showForm
-  }
-}
-
-export function newReport() {
-  return {
-    type: 'NEW_REPORT'
-  }
-}
-
-export function openReport(report) {
-  return {
-    type: 'OPEN_REPORT',
-    report
-  }
-}
-
-export function saveReport(report) {
-  return {
-    type: 'SAVE_REPORT',
-    report
-  }
-}
+export { default } from './OpenReportModal.js';
