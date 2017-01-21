@@ -135,7 +135,7 @@
                 <instructions>
                   <Bundle-SymbolicName>srep-ui</Bundle-SymbolicName>
                   <Bundle-Version>${project.version}</Bundle-Version>
-                  <Export-Package>srep-ui.internal.*</Export-Package>
+                  <Export-Package>bi.meteorite.srepui.*</Export-Package>
                   <Import-Package>
                     javax.servlet.*; version="2.5",
                     *
@@ -182,13 +182,13 @@
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-runtime</artifactId>
-      <version>4.2.7</version>
+      <version>4.3.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.ops4j.pax.web</groupId>
       <artifactId>pax-web-extender-whiteboard</artifactId>
-      <version>4.2.7</version>
+      <version>4.3.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
