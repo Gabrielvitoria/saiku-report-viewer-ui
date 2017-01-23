@@ -23,6 +23,7 @@ import {
   Button
 } from 'react-bootstrap';
 import Icon from '../Icon';
+import Tooltip from '../Tooltip';
 import style from './Toolbar.styl';
 
 class Toolbar extends Component {
@@ -47,17 +48,31 @@ class Toolbar extends Component {
           <Navbar.Form pullLeft>
             <ButtonToolbar>
               <ButtonGroup>
-                <Button><Icon name="print" /></Button>
+                <Tooltip title="Print" placement="bottom">
+                  <Button><Icon name="print" /></Button>
+                </Tooltip>
               </ButtonGroup>
               <ButtonGroup>
-                <Button><Icon name="angle-double-left" /></Button>
-                <Button><Icon name="angle-left" /></Button>
-                <Button><Icon name="angle-right" /></Button>
-                <Button><Icon name="angle-double-right" /></Button>
+                <Tooltip title="First page" placement="bottom">
+                  <Button><Icon name="angle-double-left" /></Button>
+                </Tooltip>
+                <Tooltip title="Previous page" placement="bottom">
+                  <Button><Icon name="angle-left" /></Button>
+                </Tooltip>
+                <Tooltip title="Next page" placement="bottom">
+                  <Button><Icon name="angle-right" /></Button>
+                </Tooltip>
+                <Tooltip title="Last page" placement="bottom">
+                  <Button><Icon name="angle-double-right" /></Button>
+                </Tooltip>
               </ButtonGroup>
               <ButtonGroup>
-                <Button><Icon name="search-minus" /></Button>
-                <Button><Icon name="search-plus" /></Button>
+                <Tooltip title="Zoom out" placement="bottom">
+                  <Button><Icon name="search-minus" /></Button>
+                </Tooltip>
+                <Tooltip title="Zoom in" placement="bottom">
+                  <Button><Icon name="search-plus" /></Button>
+                </Tooltip>
               </ButtonGroup>
               <ButtonGroup>
                 <FormControl componentClass="select" placeholder="select">
@@ -70,11 +85,16 @@ class Toolbar extends Component {
           <Navbar.Form pullRight>
             <ButtonToolbar>
               <ButtonGroup>
-                <Button onClick={this.onShowForm}>
-                  <Icon
-                    name={showForm ? 'angle-double-down' : 'angle-double-up'}
-                  />
-                </Button>
+                <Tooltip
+                  title={showForm ? 'Show form' : 'Hide form'}
+                  placement="bottom"
+                >
+                  <Button onClick={this.onShowForm}>
+                    <Icon
+                      name={showForm ? 'angle-double-down' : 'angle-double-up'}
+                    />
+                  </Button>
+                </Tooltip>
               </ButtonGroup>
             </ButtonToolbar>
           </Navbar.Form>
