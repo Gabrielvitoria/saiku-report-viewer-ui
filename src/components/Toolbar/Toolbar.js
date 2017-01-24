@@ -53,24 +53,24 @@ class Toolbar extends Component {
                 </Tooltip>
               </ButtonGroup>
               <ButtonGroup>
-                <Tooltip title="First page" placement="bottom">
+                <Tooltip title="Go to First Page" placement="bottom">
                   <Button><Icon name="angle-double-left" /></Button>
                 </Tooltip>
-                <Tooltip title="Previous page" placement="bottom">
+                <Tooltip title="Previous Page" placement="bottom">
                   <Button><Icon name="angle-left" /></Button>
                 </Tooltip>
-                <Tooltip title="Next page" placement="bottom">
+                <Tooltip title="Next Page" placement="bottom">
                   <Button><Icon name="angle-right" /></Button>
                 </Tooltip>
-                <Tooltip title="Last page" placement="bottom">
+                <Tooltip title="Go to Last Page" placement="bottom">
                   <Button><Icon name="angle-double-right" /></Button>
                 </Tooltip>
               </ButtonGroup>
               <ButtonGroup>
-                <Tooltip title="Zoom out" placement="bottom">
+                <Tooltip title="Zoom Out" placement="bottom">
                   <Button><Icon name="search-minus" /></Button>
                 </Tooltip>
-                <Tooltip title="Zoom in" placement="bottom">
+                <Tooltip title="Zoom In" placement="bottom">
                   <Button><Icon name="search-plus" /></Button>
                 </Tooltip>
               </ButtonGroup>
@@ -86,7 +86,7 @@ class Toolbar extends Component {
             <ButtonToolbar>
               <ButtonGroup>
                 <Tooltip
-                  title={showForm ? 'Show form' : 'Hide form'}
+                  title={showForm ? 'Show Form' : 'Hide Form'}
                   placement="bottom"
                 >
                   <Button onClick={this.onShowForm}>
