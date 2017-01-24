@@ -29,7 +29,7 @@ class ReportServer {
   }
 
   open(reportId) {
-    return config.REPORT_SERVER_BASE_URL + '/render/' + reportId + '.pdf';
+    return config.REPORT_SERVER_BASE_URL + '/render/' + reportId;
   }
 }
 

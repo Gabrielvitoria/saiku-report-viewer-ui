@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 
-function waitModal(state = false, action) {
+function waitModal(state = {}, action) {
   switch(action.type) {
     case 'SHOW_WAIT_MODAL':
       return {

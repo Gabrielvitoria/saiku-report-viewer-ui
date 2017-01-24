@@ -14,7 +14,7 @@
  *   limitations under the License.
  */
 
-function errorModal(state = false, action) {
+function errorModal(state = {}, action) {
   switch(action.type) {
     case 'SHOW_ERROR_MODAL':
       return {

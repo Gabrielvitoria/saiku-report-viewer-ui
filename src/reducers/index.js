@@ -20,12 +20,14 @@ import showForm from './showForm';
 import reports from './reports';
 import waitModal from './waitModal';
 import errorModal from './errorModal';
+import reportParameters from './reportParameters';
 
 const rootReducer = combineReducers({
   showForm,
   reports,
   waitModal,
   errorModal,
+  reportParameters,
   routing: routerReducer
 });
 

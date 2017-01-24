@@ -32,6 +32,31 @@ class ReportViewer extends Component {
     super();
 
     this.server = new ReportServer();
+    this.getReportUrl = this.getReportUrl.bind(this);
+  }
+
+  getReportUrl() {
+    if (this.props.reports.reportToOpen) {
+      var params = '';
+
+      if (this.props.reportParameters && this.props.reportParameters.stringParam) {
+        params = '?SampleString=' + encodeURIComponent(this.props.reportParameters.stringParam);
+      }
+      // if (this.props.reportParameters && this.props.reportParameters.boolParam !== undefined) {
+      //   params = (params.length > 0) ? (params + '&') : (params + '?');
+      //   params += 'SampleBoolean=' + this.props.reportParameters.boolParam;
+      // }
+      if (this.props.reportParameters && this.props.reportParameters.dateParam !== undefined) {
+        params = (params.length > 0) ? (params + '&') : (params + '?');
+        params += 'SampleDate=' + this.props.reportParameters.dateParam.format('YYYY-MM-DD');
+      }
+
+      const pdfUrl = this.props.reports.reportToOpen + '.pdf' + params;
+      
+      return this.server.open(pdfUrl);
+    }
+
+    return PDF_SAMPLE_FILE;
   }
 
   render() {
@@ -41,11 +66,7 @@ class ReportViewer extends Component {
           <Row>
             <Col md={10} mdOffset={1}>
               <div className={style.ReportViewer_canvas}>
-                <PDF
-                  file={this.props.reports.reportToOpen ? this.server.open(this.props.reports.reportToOpen) : PDF_SAMPLE_FILE}
-                  page={1}
-                  scale={1}
-                />
+                <PDF file={this.getReportUrl()} page={1} scale={1}/>
               </div>
             </Col>
           </Row>

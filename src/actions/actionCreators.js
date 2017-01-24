@@ -21,6 +21,7 @@ export function showReportForm(showForm) {
   }
 }
 
+// Actions for menu items
 export function newReport() {
   return {
     type: 'NEW_REPORT'
@@ -41,6 +42,7 @@ export function saveReport(report) {
   }
 }
 
+// Actions for wait modal
 export function showWaitModal(message) {
   return {
     type: 'SHOW_WAIT_MODAL',
@@ -54,6 +56,7 @@ export function hideWaitModal() {
   }
 }
 
+// Actions for error modal
 export function showErrorModal(title, message) {
   return {
     type: 'SHOW_ERROR_MODAL',
@@ -65,5 +68,15 @@ export function showErrorModal(title, message) {
 export function hideErrorModal() {
   return {
     type: 'HIDE_ERROR_MODAL'
+  }
+}
+
+// Actions for report parameters form
+export function updateReportParameters(stringParam, boolParam, dateParam) {
+  return {
+    type: 'UPDATE_REPORT_PARAMETERS',
+    stringParam,
+    boolParam,
+    dateParam
   }
 }

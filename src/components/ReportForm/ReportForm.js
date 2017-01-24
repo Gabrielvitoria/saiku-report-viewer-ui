@@ -36,15 +36,58 @@ class ReportForm extends Component {
     super(props);
 
     this.state = {
-      startDate: moment()
+      startDate: moment(),
+      stringParam: '',
+      boolParam: false,
+      autoupdate: false
     };
 
     this.onChangeDate = this.onChangeDate.bind(this);
+    this.onChangeStringParam = this.onChangeStringParam.bind(this);
+    this.onChangeBoolParam = this.onChangeBoolParam.bind(this);
+    this.onChangeAutoUpdate = this.onChangeAutoUpdate.bind(this);
+    this.updateParameters = this.updateParameters.bind(this);
+  }
+
+  updateParameters() {
+    this.props.updateReportParameters(this.state.stringParam,
+                                      this.state.boolParam,
+                                      this.state.startDate);
   }
 
   onChangeDate(date) {
     this.setState({
       startDate: date
+    });
+    
+    if (this.state.autoupdate) {
+      this.updateParameters();
+    }
+  }
+
+  onChangeStringParam(event) {
+    this.setState({
+      stringParam: event.target.value
+    });
+
+    if (this.state.autoupdate) {
+      this.updateParameters();
+    }
+  }
+
+  onChangeBoolParam(event) {
+    this.setState({
+      boolParam: event.target.value
+    });
+
+    if (this.state.autoupdate) {
+      this.updateParameters();
+    }
+  }
+
+  onChangeAutoUpdate(event) {
+    this.setState({
+      autoupdate: event.target.value
     });
   }
 
@@ -62,7 +105,7 @@ class ReportForm extends Component {
                 Sample String
               </Col>
               <Col md={5}>
-                <FormControl type="text" />
+                <FormControl type="text" onChange={this.onChangeStringParam} />
               </Col>
             </FormGroup>
             <FormGroup controlId="formBooleanParam">
@@ -70,7 +113,7 @@ class ReportForm extends Component {
                 Boolean Param
               </Col>
               <Col md={5}>
-                <Checkbox />
+                <Checkbox onChange={this.onChangeBoolParam} />
               </Col>
             </FormGroup>
             <FormGroup controlId="formTheDate">
@@ -97,12 +140,15 @@ class ReportForm extends Component {
             <Col md={3}>
               <FormGroup controlId="formAutoUpdate">
                 <Col mdOffset={1}>
-                  <Checkbox>Auto-Update on selection</Checkbox>
+                  <Checkbox onChange={this.onChangeAutoUpdate}>
+                    Auto-Update on selection
+                  </Checkbox>
                 </Col>
               </FormGroup>
             </Col>
             <Col md={3}>
-              <Button type="button" className="pull-right">Update</Button>
+              <Button type="button" className="pull-right" 
+                onClick={this.updateParameters}>Update</Button>
             </Col>
           </Row>
         </div>

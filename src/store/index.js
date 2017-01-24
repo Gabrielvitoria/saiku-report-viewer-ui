@@ -26,7 +26,8 @@ const defaultState = {
   showForm: false,
   reports: {},
   waitModal: {show: false},
-  errorModal: {show: false}
+  errorModal: {show: false},
+  reportParameters: {}
 };
 
 const enhancers = compose(
