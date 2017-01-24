@@ -32,9 +32,8 @@ class ReportViewer extends Component {
     super();
 
     this.server = new ReportServer();
+<<<<<<< HEAD
     this.getReportUrl = this.getReportUrl.bind(this);
-    this.onDocumentComplete = this.onDocumentComplete.bind(this);
-    this.onPageComplete = this.onPageComplete.bind(this);
   }
 
   getReportUrl() {
@@ -59,6 +58,9 @@ class ReportViewer extends Component {
     }
 
     return PDF_SAMPLE_FILE;
+=======
+    this.onDocumentComplete = this.onDocumentComplete.bind(this);
+    this.onPageComplete = this.onPageComplete.bind(this);
   }
 
   onDocumentComplete(pdf) {
@@ -67,21 +69,31 @@ class ReportViewer extends Component {
 
   onPageComplete(page) {
     console.log(page);
+>>>>>>> 333f36b52427401353c860f8f45fc18b6359288e
   }
 
   render() {
+    const file = this.props.reports.reportToOpen ?
+      this.server.open(this.props.reports.reportToOpen) :
+      PDF_SAMPLE_FILE;
+
     return (
       <div className={style.ReportViewer}>
         <Grid>
           <Row>
             <Col md={10} mdOffset={1}>
               <div className={style.ReportViewer_canvas}>
-                <PDF 
-                  file={this.getReportUrl()} 
-                  page={1} 
-                  scale={1} 
+<<<<<<< HEAD
+                <PDF file={this.getReportUrl()} page={1} scale={1}/>
+=======
+                <PDF
+                  file={file}
+                  page={1}
+                  scale={1}
                   onDocumentComplete={this.onDocumentComplete}
-                  onPageComplete={this.onPageComplete}/>
+                  onPageComplete={this.onPageComplete}
+                />
+>>>>>>> 333f36b52427401353c860f8f45fc18b6359288e
               </div>
             </Col>
           </Row>
