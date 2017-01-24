@@ -24,7 +24,9 @@ import rootReducer from '../reducers/index';
 
 const defaultState = {
   showForm: false,
-  reports: {}
+  reports: {},
+  waitModal: {show: false},
+  errorModal: {show: false}
 };
 
 const enhancers = compose(

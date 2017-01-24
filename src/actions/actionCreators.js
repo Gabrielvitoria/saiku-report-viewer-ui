@@ -40,3 +40,30 @@ export function saveReport(report) {
     report
   }
 }
+
+export function showWaitModal(message) {
+  return {
+    type: 'SHOW_WAIT_MODAL',
+    message
+  }
+}
+
+export function hideWaitModal() {
+  return {
+    type: 'HIDE_WAIT_MODAL'
+  }
+}
+
+export function showErrorModal(title, message) {
+  return {
+    type: 'SHOW_ERROR_MODAL',
+    title,
+    message
+  }
+}
+
+export function hideErrorModal() {
+  return {
+    type: 'HIDE_ERROR_MODAL'
+  }
+}

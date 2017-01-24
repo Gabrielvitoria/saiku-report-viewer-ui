@@ -23,6 +23,8 @@ function mapStateToProps(state) {
   return {
     showForm: state.showForm,
     reports: state.reports,
+    waitModal: state.waitModal,
+    errorModal: state.errorModal,
   }
 }
 

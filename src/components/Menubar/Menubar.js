@@ -88,7 +88,8 @@ class Menubar extends Component {
         </Navbar>
         <OpenReportModal show={this.state.showOpenReportModal} 
                          onHide={this.hideOpenReportModal}
-                         onSelectReport={this.selectReport}/>
+                         onSelectReport={this.selectReport}
+                         {...this.props} />
       </div>
     );
   }

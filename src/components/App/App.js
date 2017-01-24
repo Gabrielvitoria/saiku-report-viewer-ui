@@ -21,6 +21,8 @@ import Menubar from '../Menubar';
 import Toolbar from '../Toolbar';
 import ReportForm from '../ReportForm';
 import ReportViewer from '../ReportViewer';
+import WaitModal from '../WaitModal';
+import ErrorModal from '../ErrorModal';
 
 class App extends Component {
   render() {
@@ -36,6 +38,8 @@ class App extends Component {
         <ReportForm showForm={showForm} {...props} />
         <Toolbar showForm={showForm} {...props} />
         <ReportViewer {...props} />
+        <WaitModal {...props} />
+        <ErrorModal {...props} />
       </Container>
     );
   }

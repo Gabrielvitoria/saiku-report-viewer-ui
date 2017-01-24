@@ -18,10 +18,14 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import showForm from './showForm';
 import reports from './reports';
+import waitModal from './waitModal';
+import errorModal from './errorModal';
 
 const rootReducer = combineReducers({
   showForm,
   reports,
+  waitModal,
+  errorModal,
   routing: routerReducer
 });
 

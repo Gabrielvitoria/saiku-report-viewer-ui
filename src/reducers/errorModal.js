@@ -14,23 +14,23 @@
  *   limitations under the License.
  */
 
-import axios from 'axios';
-import config from '../config';
-
-class ReportServer {
-  list(callback, errorCallback) {
-    axios.get(config.REPORT_SERVER_BASE_URL + '/list')
-      .then(callback)
-      .catch(e => {
-        if (errorCallback) {
-          errorCallback(e);
-        }
-      });
-  }
-
-  open(reportId) {
-    return config.REPORT_SERVER_BASE_URL + '/render/' + reportId + '.pdf';
+function errorModal(state = false, action) {
+  switch(action.type) {
+    case 'SHOW_ERROR_MODAL':
+      return {
+        ...state,
+        show: true,
+        title: action.title,
+        message: action.message
+      };
+    case 'HIDE_ERROR_MODAL':
+      return {
+        ...state,
+        show: false
+      };    
+    default:
+      return state;
   }
 }
 
-export default ReportServer;
+export default errorModal;

@@ -14,23 +14,4 @@
  *   limitations under the License.
  */
 
-import axios from 'axios';
-import config from '../config';
-
-class ReportServer {
-  list(callback, errorCallback) {
-    axios.get(config.REPORT_SERVER_BASE_URL + '/list')
-      .then(callback)
-      .catch(e => {
-        if (errorCallback) {
-          errorCallback(e);
-        }
-      });
-  }
-
-  open(reportId) {
-    return config.REPORT_SERVER_BASE_URL + '/render/' + reportId + '.pdf';
-  }
-}
-
-export default ReportServer;
+export { default } from './WaitModal.js';

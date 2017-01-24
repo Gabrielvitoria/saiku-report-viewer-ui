@@ -45,16 +45,22 @@ class OpenReportModal extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.show !== this.state.show) {
       this.setState({ show: nextProps.show });
+
+      if (nextProps.show) {
+        this.listReports();
+      }
     }
   }
 
-  componentDidMount() {
-    this.listReports();
-  }
-
   listReports() {
+    this.props.showWaitModal('Please wait, retrieving reports list from server ...');
     this.server.list(res => {
+      this.props.hideWaitModal();
       this.setState({reports: res.data});
+    }, error => {
+      this.props.hideWaitModal();
+      this.props.onHide();
+      this.props.showErrorModal('Connection Error', 'Could not connect to server to retrieve reports');
     });
   }
 

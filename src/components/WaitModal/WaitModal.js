@@ -14,23 +14,19 @@
  *   limitations under the License.
  */
 
-import axios from 'axios';
-import config from '../config';
+import React, { Component } from 'react';
+import { Modal } from 'react-bootstrap';
 
-class ReportServer {
-  list(callback, errorCallback) {
-    axios.get(config.REPORT_SERVER_BASE_URL + '/list')
-      .then(callback)
-      .catch(e => {
-        if (errorCallback) {
-          errorCallback(e);
-        }
-      });
-  }
-
-  open(reportId) {
-    return config.REPORT_SERVER_BASE_URL + '/render/' + reportId + '.pdf';
+class WaitModal extends Component {
+  render() {
+    return (
+      <Modal bsSize="small" show={this.props.waitModal.show}>
+        <Modal.Body>
+          <h4>{this.props.waitModal.message}</h4>
+        </Modal.Body>
+      </Modal>      
+    );
   }
 }
 
-export default ReportServer;
+export default WaitModal;
