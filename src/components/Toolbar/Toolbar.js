@@ -45,9 +45,9 @@ class Toolbar extends Component {
     return (
       <div className={style.Toolbar}>
         <Navbar className={style.Toolbar_navbar} fluid role="navigation">
-          <Navbar.Form pullLeft>
+          <Navbar.Form className={style.Toolbar_navbar_form} pullLeft>
             <ButtonToolbar>
-              <ButtonGroup>
+              <ButtonGroup className="hidden-xs">
                 <Tooltip title="Print" placement="bottom">
                   <Button><Icon name="print" /></Button>
                 </Tooltip>
@@ -74,15 +74,27 @@ class Toolbar extends Component {
                   <Button><Icon name="search-plus" /></Button>
                 </Tooltip>
               </ButtonGroup>
-              <ButtonGroup>
+              <ButtonGroup className="hidden-xs">
                 <FormControl componentClass="select" placeholder="select">
                   <option value="select">select</option>
                   <option value="other">...</option>
                 </FormControl>
               </ButtonGroup>
+              <ButtonGroup className="hidden-sm hidden-md hidden-lg">
+                <Tooltip
+                  title={showForm ? 'Show Form' : 'Hide Form'}
+                  placement="bottom"
+                >
+                  <Button onClick={this.onShowForm}>
+                    <Icon
+                      name={showForm ? 'angle-double-down' : 'angle-double-up'}
+                    />
+                  </Button>
+                </Tooltip>
+              </ButtonGroup>
             </ButtonToolbar>
           </Navbar.Form>
-          <Navbar.Form pullRight>
+          <Navbar.Form pullRight className="hidden-xs">
             <ButtonToolbar>
               <ButtonGroup>
                 <Tooltip
