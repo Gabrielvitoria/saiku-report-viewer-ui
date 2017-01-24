@@ -44,52 +44,59 @@ class Menubar extends Component {
   }
 
   hideOpenReportModal() {
-   this.setState({showOpenReportModal: false}); 
+    this.setState({showOpenReportModal: false});
   }
 
   selectReport(report) {
-    this.setState({showOpenReportModal: false}); 
+    this.setState({showOpenReportModal: false});
     this.props.openReport(report);
   }
 
   render() {
     return (
       <div className={style.Menubar}>
-        <Navbar className={style.Menubar_navbar} fluid role="navigation">
-          <Nav className={style.Menubar_nav}>
-            <NavDropdown eventKey={1} title="Report" id="dropdown-report">
-              <MenuItem eventKey={1.1} onClick={this.props.newReport}>
-                <Icon name="file-text-o"/> New
-              </MenuItem>
-              <MenuItem eventKey={1.2} onClick={this.showOpenReportModal}>
-                <Icon name="folder-open-o"/> Open
-              </MenuItem>
-              <MenuItem eventKey={1.3} onClick={this.props.saveReport}>
-                <Icon name="save"/> Save
-              </MenuItem>
-            </NavDropdown>
-            <NavDropdown eventKey={2} title="Export" id="dropdown-export">
-              <MenuItem eventKey={2.1}>
-                <Icon name="file-pdf-o" /> PDF Format
-              </MenuItem>
-              <MenuItem eventKey={2.2}>
-                <Icon name="file-excel-o" /> XLS Format
-              </MenuItem>
-            </NavDropdown>
-            <NavDropdown eventKey={3} title="View" id="dropdown-view">
-              <MenuItem eventKey={3.1}>Action</MenuItem>
-              <MenuItem eventKey={3.2}>Another action</MenuItem>
-              <MenuItem eventKey={3.3}>Something else here</MenuItem>
-              <MenuItem divider />
-              <MenuItem eventKey={3.3}>Separated link</MenuItem>
-            </NavDropdown>
-            <NavItem eventKey={4} href="#">Help</NavItem>
-          </Nav>
+        <Navbar className={style.Menubar_navbar} fluid collapseOnSelect role="navigation">
+          <Navbar.Header>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav className={style.Menubar_nav}>
+              <NavDropdown eventKey={1} title="Report" id="dropdown-report">
+                <MenuItem eventKey={1.1} onClick={this.props.newReport}>
+                  <Icon name="file-text-o"/> New
+                </MenuItem>
+                <MenuItem eventKey={1.2} onClick={this.showOpenReportModal}>
+                  <Icon name="folder-open-o"/> Open
+                </MenuItem>
+                <MenuItem eventKey={1.3} onClick={this.props.saveReport}>
+                  <Icon name="save"/> Save
+                </MenuItem>
+              </NavDropdown>
+              <NavDropdown eventKey={2} title="Export" id="dropdown-export">
+                <MenuItem eventKey={2.1}>
+                  <Icon name="file-pdf-o" /> PDF Format
+                </MenuItem>
+                <MenuItem eventKey={2.2}>
+                  <Icon name="file-excel-o" /> XLS Format
+                </MenuItem>
+              </NavDropdown>
+              <NavDropdown eventKey={3} title="View" id="dropdown-view">
+                <MenuItem eventKey={3.1}>Action</MenuItem>
+                <MenuItem eventKey={3.2}>Another action</MenuItem>
+                <MenuItem eventKey={3.3}>Something else here</MenuItem>
+                <MenuItem divider />
+                <MenuItem eventKey={3.3}>Separated link</MenuItem>
+              </NavDropdown>
+              <NavItem eventKey={4} href="#">Help</NavItem>
+            </Nav>
+          </Navbar.Collapse>
         </Navbar>
-        <OpenReportModal show={this.state.showOpenReportModal} 
-                         onHide={this.hideOpenReportModal}
-                         onSelectReport={this.selectReport}
-                         {...this.props} />
+        <OpenReportModal
+          show={this.state.showOpenReportModal}
+          onHide={this.hideOpenReportModal}
+          onSelectReport={this.selectReport}
+          {...this.props}
+        />
       </div>
     );
   }
