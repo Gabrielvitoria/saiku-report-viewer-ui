@@ -59,7 +59,7 @@ class ReportForm extends Component {
     this.setState({
       startDate: date
     });
-    
+
     if (this.state.autoupdate) {
       this.updateParameters();
     }
@@ -147,7 +147,7 @@ class ReportForm extends Component {
               </FormGroup>
             </Col>
             <Col md={3}>
-              <Button type="button" className="pull-right" 
+              <Button type="button" className="pull-right"
                 onClick={this.updateParameters}>Update</Button>
             </Col>
           </Row>

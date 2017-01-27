@@ -20,16 +20,25 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
-import PDF from 'react-pdfjs';
+// import PDF from 'react-pdfjs';
+import PDF from '../PDFJS';
 import ReportServer from '../../services/ReportServer';
 import style from './ReportViewer.styl';
 
+// const PDF_SAMPLE_FILE =
+//   'http://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf';
+
 const PDF_SAMPLE_FILE =
-  'http://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf';
+  './wills_analytics_report.pdf';
 
 class ReportViewer extends Component {
   constructor() {
     super();
+
+    this.state = {
+      canvasWidth: null,
+      scale: 1
+    };
 
     this.server = new ReportServer();
     this.getReportUrl = this.getReportUrl.bind(this);
@@ -54,7 +63,7 @@ class ReportViewer extends Component {
       }
 
       const pdfUrl = this.props.reports.reportToOpen + '.pdf' + params;
-      
+
       return this.server.open(pdfUrl);
     }
 
@@ -65,21 +74,43 @@ class ReportViewer extends Component {
     console.log(pdf);
   }
 
-  onPageComplete(page) {
+  onPageComplete(pageIndex, page) {
+    console.log(pageIndex);
     console.log(page);
+
+    const DEFAULT_SCALE = 1;
+    const DEFAULT_ROTATE = 0;
+    const CANVAS_MARGIN = 45;
+    const {canvasWidth} = this.state;
+    const viewport = page.getViewport(DEFAULT_SCALE, DEFAULT_ROTATE);
+
+    this.setState({
+      scale: ((canvasWidth - CANVAS_MARGIN) / viewport.width)
+    });
+  }
+
+  componentDidMount() {
+    this.setState({
+      canvasWidth: this.node.clientWidth
+    });
   }
 
   render() {
+    const {scale} = this.state;
+
     return (
       <div className={style.ReportViewer}>
         <Grid>
           <Row>
             <Col md={10} mdOffset={1}>
-              <div className={style.ReportViewer_canvas}>
-                <PDF 
-                  file={this.getReportUrl()} 
-                  page={1} 
-                  scale={1} 
+              <div
+                className={style.ReportViewer_canvas}
+                ref={node => this.node = node}
+              >
+                <PDF
+                  file={this.getReportUrl()}
+                  page={1}
+                  scale={scale}
                   onDocumentComplete={this.onDocumentComplete}
                   onPageComplete={this.onPageComplete}/>
               </div>
