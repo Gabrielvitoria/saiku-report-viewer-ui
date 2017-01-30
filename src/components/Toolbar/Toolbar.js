@@ -49,29 +49,29 @@ class Toolbar extends Component {
             <ButtonToolbar>
               <ButtonGroup className="hidden-xs">
                 <Tooltip title="Print" placement="bottom">
-                  <Button><Icon name="print" /></Button>
+                  <Button onClick={this.props.printReport}><Icon name="print" /></Button>
                 </Tooltip>
               </ButtonGroup>
               <ButtonGroup>
                 <Tooltip title="Go to First Page" placement="bottom">
-                  <Button><Icon name="angle-double-left" /></Button>
+                  <Button onClick={this.props.goToTheFirstPage}><Icon name="angle-double-left" /></Button>
                 </Tooltip>
                 <Tooltip title="Previous Page" placement="bottom">
-                  <Button><Icon name="angle-left" /></Button>
+                  <Button onClick={this.props.goToThePreviousPage}><Icon name="angle-left" /></Button>
                 </Tooltip>
                 <Tooltip title="Next Page" placement="bottom">
-                  <Button><Icon name="angle-right" /></Button>
+                  <Button onClick={this.props.goToTheNextPage}><Icon name="angle-right" /></Button>
                 </Tooltip>
                 <Tooltip title="Go to Last Page" placement="bottom">
-                  <Button><Icon name="angle-double-right" /></Button>
+                  <Button onClick={this.props.goToTheLastPage}><Icon name="angle-double-right" /></Button>
                 </Tooltip>
               </ButtonGroup>
               <ButtonGroup>
                 <Tooltip title="Zoom Out" placement="bottom">
-                  <Button><Icon name="search-minus" /></Button>
+                  <Button onClick={this.props.zoomOut}><Icon name="search-minus" /></Button>
                 </Tooltip>
                 <Tooltip title="Zoom In" placement="bottom">
-                  <Button><Icon name="search-plus" /></Button>
+                  <Button onClick={this.props.zoomIn}><Icon name="search-plus" /></Button>
                 </Tooltip>
               </ButtonGroup>
               <ButtonGroup className="hidden-xs">

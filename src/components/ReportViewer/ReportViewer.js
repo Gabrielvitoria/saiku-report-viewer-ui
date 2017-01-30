@@ -61,12 +61,12 @@ class ReportViewer extends Component {
     return PDF_SAMPLE_FILE;
   }
 
-  onDocumentComplete(pdf) {
-    console.log(pdf);
+  onDocumentComplete(numberOfPages) {
+    this.props.setNumberOfPages(numberOfPages);
   }
 
-  onPageComplete(page) {
-    console.log(page);
+  onPageComplete(currentPage) {
+    this.props.setCurrentPage(currentPage);
   }
 
   render() {
@@ -78,10 +78,10 @@ class ReportViewer extends Component {
               <div className={style.ReportViewer_canvas}>
                 <PDF 
                   file={this.getReportUrl()} 
-                  page={1} 
-                  scale={1} 
-                  onDocumentComplete={this.onDocumentComplete}
-                  onPageComplete={this.onPageComplete}/>
+                  page={this.props.reports.currentPage || 1} 
+                  scale={this.props.reports.scale || 1} 
+                  onDocumentComplete={this.onDocumentComplete.bind(this)}
+                  onPageComplete={this.onPageComplete.bind(this)}/>
               </div>
             </Col>
           </Row>

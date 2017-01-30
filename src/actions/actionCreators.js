@@ -80,3 +80,60 @@ export function updateReportParameters(stringParam, boolParam, dateParam) {
     dateParam
   }
 }
+
+// Actions for report viewer toolbar
+export function printReport() {
+  return {
+    type: 'PRINT_REPORT'
+  }
+}
+
+export function goToTheFirstPage() {
+  return {
+    type: 'GO_TO_THE_FIRST_PAGE'
+  }
+}
+
+export function goToThePreviousPage() {
+  return {
+    type: 'GO_TO_THE_PREVIOUS_PAGE'
+  }
+}
+
+export function goToTheNextPage() {
+  return {
+    type: 'GO_TO_THE_NEXT_PAGE'
+  }
+}
+
+export function goToTheLastPage() {
+  return {
+    type: 'GO_TO_THE_LAST_PAGE'
+  }
+}
+
+export function zoomOut() {
+  return {
+    type: 'ZOOM_OUT'
+  }
+}
+
+export function zoomIn() {
+  return {
+    type: 'ZOOM_IN'
+  }
+}
+
+export function setCurrentPage(currentPage) {
+  return {
+    type: 'SET_CURRENT_PAGE',
+    currentPage
+  }
+}
+
+export function setNumberOfPages(numberOfPages) {
+  return {
+    type: 'SET_NUMBER_OF_PAGES',
+    numberOfPages
+  }
+}
