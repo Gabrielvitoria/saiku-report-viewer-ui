@@ -31,6 +31,10 @@ class ReportServer {
   open(reportId) {
     return config.REPORT_SERVER_BASE_URL + '/render/' + reportId;
   }
+
+  download(reportUrl) {
+    window.open(reportUrl);
+  }
 }
 
 export default ReportServer;

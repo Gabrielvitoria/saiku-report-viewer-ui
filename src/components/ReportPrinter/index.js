@@ -14,18 +14,4 @@
  *   limitations under the License.
  */
 
-function reportParameters(state = {}, action) {
-  switch(action.type) {
-    case 'UPDATE_REPORT_PARAMETERS':
-      return {
-        ...state,
-        stringParam: action.stringParam,
-        boolParam: action.boolParam,
-        dateParam: action.dateParam
-      };
-    default:
-      return state;
-  }
-}
-
-export default reportParameters;
+export { default } from './ReportPrinter.js';

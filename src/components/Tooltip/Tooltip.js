@@ -19,6 +19,7 @@ import {
   Tooltip as BTTooltip,
   OverlayTrigger
 } from 'react-bootstrap';
+import style from './Tooltip.styl';
 
 class Tooltip extends Component {
   static propTypes = {
@@ -44,7 +45,7 @@ class Tooltip extends Component {
       delayHide,
       children
     } = this.props;
-    const tooltip = <BTTooltip id={id}>{title}</BTTooltip>;
+    const tooltip = <BTTooltip bsClass={style.Tooltip} id={id}>{title}</BTTooltip>;
 
     return (
       <OverlayTrigger

@@ -24,8 +24,7 @@ function mapStateToProps(state) {
     showForm: state.showForm,
     reports: state.reports,
     waitModal: state.waitModal,
-    errorModal: state.errorModal,
-    reportParameters: state.reportParameters
+    errorModal: state.errorModal
   }
 }
 

@@ -14,9 +14,14 @@
  *   limitations under the License.
  */
 
+import ReportServer from '../services/ReportServer';
+import util from '../util';
+
 function newReport(state = {}, action) {
-  console.log('new report');
-  return state;
+  return {
+    ...state,
+    reportToOpen: util.BLANK_BASE64_PDF
+  };
 }
 
 function openReport(state = {}, action) {
@@ -27,17 +32,26 @@ function openReport(state = {}, action) {
 }
 
 function saveReport(state = {}, action) {
-  console.log('save report');
+  new ReportServer().download(state.reportToOpen);
+
   return state;
 }
 
 function printReport(state = {}, action) {
-  console.log('print report');
-  return state;
+  return {
+    ...state,
+    printing: true
+  };
+}
+
+function finishPrinting(state = {}, action) {
+  return {
+    ...state,
+    printing: false
+  };
 }
 
 function goToTheFirstPage(state = {}, action) {
-  console.log('go to the first page', state.currentPage);
   return {
     ...state,
     currentPage: 1
@@ -45,7 +59,6 @@ function goToTheFirstPage(state = {}, action) {
 }
 
 function goToThePreviousPage(state = {}, action) {
-  console.log('go to the previous page', state.currentPage);
   return {
     ...state,
     currentPage: (state.currentPage > 1) ? state.currentPage - 1 : 1
@@ -53,7 +66,6 @@ function goToThePreviousPage(state = {}, action) {
 }
 
 function goToTheNextPage(state = {}, action) {
-  console.log('go to the next page', state.currentPage);
   return {
     ...state,
     currentPage: (state.currentPage < state.numberOfPages) ? state.currentPage + 1 : state.numberOfPages
@@ -61,7 +73,6 @@ function goToTheNextPage(state = {}, action) {
 }
 
 function goToTheLastPage(state = {}, action) {
-  console.log('go to the last page', state.numberOfPages);
   return {
     ...state,
     currentPage: state.numberOfPages
@@ -69,7 +80,6 @@ function goToTheLastPage(state = {}, action) {
 }
 
 function zoomOut(state = {}, action) {
-  console.log('zoom out', state.scale);
   return {
     ...state,
     scale: state.scale > 0.25 ? state.scale - 0.25 : 0.25
@@ -77,7 +87,6 @@ function zoomOut(state = {}, action) {
 }
 
 function zoomIn(state = {}, action) {
-  console.log('zoom in', state.scale);
   return {
     ...state,
     scale: state.scale + 0.25
@@ -85,7 +94,6 @@ function zoomIn(state = {}, action) {
 }
 
 function setCurrentPage(state = {}, action) {
-  console.log('set current page', action.currentPage);
   return {
     ...state,
     currentPage: action.currentPage
@@ -93,10 +101,44 @@ function setCurrentPage(state = {}, action) {
 }
 
 function setNumberOfPages(state = {}, action) {
-  console.log('set number of pages', action.numberOfPages);
   return {
     ...state,
     numberOfPages: action.numberOfPages
+  };
+}
+
+function updateReportParameters(state = {}, action) {
+  function getReportUrl(state, action) {
+    if (state.reportToOpen) {
+      let params = '';
+
+      if (action.reportParameters) {
+        if (action.reportParameters.stringParam) {
+          params = '?SampleString=' + encodeURIComponent(action.reportParameters.stringParam);
+        }
+
+        if (action.reportParameters.dateParam !== undefined) {
+          params = (params.length > 0) ? (params + '&') : (params + '?');
+          params += 'SampleDate=' + action.reportParameters.dateParam.format('YYYY-MM-DD');
+        }      
+      }
+
+      const pdfUrl = state.reportToOpen + '.pdf' + params;
+      const server = new ReportServer();
+      
+      return server.open(pdfUrl);
+    }
+
+    return null;
+  }
+
+  return {
+    ...state,
+    reportToOpen: getReportUrl(state, action),
+    reportParameters: {
+      ...state.reportParameters,
+      ...action.reportParameters
+    }
   };
 }
 
@@ -110,6 +152,8 @@ function reportActions(state = {}, action) {
       return saveReport(state, action);
     case 'PRINT_REPORT':
       return printReport(state, action);
+    case 'FINISH_PRINTING':
+      return finishPrinting(state, action);
     case 'GO_TO_THE_FIRST_PAGE':
       return goToTheFirstPage(state, action);
     case 'GO_TO_THE_PREVIOUS_PAGE':
@@ -126,6 +170,8 @@ function reportActions(state = {}, action) {
       return setCurrentPage(state, action);
     case 'SET_NUMBER_OF_PAGES':
       return setNumberOfPages(state, action);
+    case 'UPDATE_REPORT_PARAMETERS':
+      return updateReportParameters(state, action);
     default:
       return state;
   }

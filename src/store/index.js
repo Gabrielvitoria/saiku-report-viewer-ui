@@ -22,16 +22,21 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { hashHistory } from 'react-router';
 import rootReducer from '../reducers/index';
 
+const PDF_SAMPLE_FILE =
+  'http://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf';
+
 const defaultState = {
   showForm: false,
   reports: {
+    reportToOpen: PDF_SAMPLE_FILE,
     currentPage: 1,
     numberOfPages: 1,
-    scale: 1
+    scale: 1,
+    printing: false,
+    reportParameters: {}
   },
   waitModal: {show: false},
-  errorModal: {show: false},
-  reportParameters: {}
+  errorModal: {show: false}
 };
 
 const enhancers = compose(

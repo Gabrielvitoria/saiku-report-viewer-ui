@@ -23,6 +23,7 @@ import ReportForm from '../ReportForm';
 import ReportViewer from '../ReportViewer';
 import WaitModal from '../WaitModal';
 import ErrorModal from '../ErrorModal';
+import ReportPrinter from '../ReportPrinter';
 
 class App extends Component {
   render() {
@@ -40,6 +41,7 @@ class App extends Component {
         <ReportViewer {...props} />
         <WaitModal {...props} />
         <ErrorModal {...props} />
+        <ReportPrinter {...props} />
       </Container>
     );
   }

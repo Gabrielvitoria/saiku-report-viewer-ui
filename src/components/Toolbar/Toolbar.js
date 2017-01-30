@@ -26,11 +26,50 @@ import Icon from '../Icon';
 import Tooltip from '../Tooltip';
 import style from './Toolbar.styl';
 
+const WAIT_DEFAULT_MESSAGE = 'Please wait ...';
+
 class Toolbar extends Component {
   constructor(props) {
     super(props);
 
     this.onShowForm = this.onShowForm.bind(this);
+
+    this.goToTheFirstPage = this.goToTheFirstPage.bind(this);
+    this.goToThePreviousPage = this.goToThePreviousPage.bind(this);
+    this.goToTheNextPage = this.goToTheNextPage.bind(this);
+    this.goToTheLastPage = this.goToTheLastPage.bind(this);
+    this.zoomOut = this.zoomOut.bind(this);
+    this.zoomIn = this.zoomIn.bind(this);
+  }
+
+  goToTheFirstPage() {
+    this.props.showWaitModal(WAIT_DEFAULT_MESSAGE);
+    this.props.goToTheFirstPage();
+  }
+
+  goToThePreviousPage() {
+    this.props.showWaitModal(WAIT_DEFAULT_MESSAGE);
+    this.props.goToThePreviousPage();
+  }
+
+  goToTheNextPage() {
+    this.props.showWaitModal(WAIT_DEFAULT_MESSAGE);
+    this.props.goToTheNextPage();
+  }
+
+  goToTheLastPage() {
+    this.props.showWaitModal(WAIT_DEFAULT_MESSAGE);
+    this.props.goToTheLastPage();
+  }
+
+  zoomOut() {
+    this.props.showWaitModal(WAIT_DEFAULT_MESSAGE);
+    this.props.zoomOut();
+  }
+
+  zoomIn() {
+    this.props.showWaitModal(WAIT_DEFAULT_MESSAGE);
+    this.props.zoomIn();
   }
 
   onShowForm() {
@@ -54,24 +93,24 @@ class Toolbar extends Component {
               </ButtonGroup>
               <ButtonGroup>
                 <Tooltip title="Go to First Page" placement="bottom">
-                  <Button onClick={this.props.goToTheFirstPage}><Icon name="angle-double-left" /></Button>
+                  <Button onClick={this.goToTheFirstPage}><Icon name="angle-double-left" /></Button>
                 </Tooltip>
                 <Tooltip title="Previous Page" placement="bottom">
-                  <Button onClick={this.props.goToThePreviousPage}><Icon name="angle-left" /></Button>
+                  <Button onClick={this.goToThePreviousPage}><Icon name="angle-left" /></Button>
                 </Tooltip>
                 <Tooltip title="Next Page" placement="bottom">
-                  <Button onClick={this.props.goToTheNextPage}><Icon name="angle-right" /></Button>
+                  <Button onClick={this.goToTheNextPage}><Icon name="angle-right" /></Button>
                 </Tooltip>
                 <Tooltip title="Go to Last Page" placement="bottom">
-                  <Button onClick={this.props.goToTheLastPage}><Icon name="angle-double-right" /></Button>
+                  <Button onClick={this.goToTheLastPage}><Icon name="angle-double-right" /></Button>
                 </Tooltip>
               </ButtonGroup>
               <ButtonGroup>
                 <Tooltip title="Zoom Out" placement="bottom">
-                  <Button onClick={this.props.zoomOut}><Icon name="search-minus" /></Button>
+                  <Button onClick={this.zoomOut}><Icon name="search-minus" /></Button>
                 </Tooltip>
                 <Tooltip title="Zoom In" placement="bottom">
-                  <Button onClick={this.props.zoomIn}><Icon name="search-plus" /></Button>
+                  <Button onClick={this.zoomIn}><Icon name="search-plus" /></Button>
                 </Tooltip>
               </ButtonGroup>
               <ButtonGroup className="hidden-xs">

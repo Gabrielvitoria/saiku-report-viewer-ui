@@ -75,9 +75,11 @@ export function hideErrorModal() {
 export function updateReportParameters(stringParam, boolParam, dateParam) {
   return {
     type: 'UPDATE_REPORT_PARAMETERS',
-    stringParam,
-    boolParam,
-    dateParam
+    reportParameters: {
+      stringParam,
+      boolParam,
+      dateParam      
+    }
   }
 }
 
@@ -85,6 +87,12 @@ export function updateReportParameters(stringParam, boolParam, dateParam) {
 export function printReport() {
   return {
     type: 'PRINT_REPORT'
+  }
+}
+
+export function finishPrinting() {
+  return {
+    type: 'FINISH_PRINTING'
   }
 }
 

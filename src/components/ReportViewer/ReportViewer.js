@@ -21,44 +21,14 @@ import {
   Col
 } from 'react-bootstrap';
 import PDF from 'react-pdfjs';
-import ReportServer from '../../services/ReportServer';
 import style from './ReportViewer.styl';
-
-const PDF_SAMPLE_FILE =
-  'http://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf';
 
 class ReportViewer extends Component {
   constructor() {
     super();
 
-    this.server = new ReportServer();
-    this.getReportUrl = this.getReportUrl.bind(this);
     this.onDocumentComplete = this.onDocumentComplete.bind(this);
     this.onPageComplete = this.onPageComplete.bind(this);
-  }
-
-  getReportUrl() {
-    if (this.props.reports.reportToOpen) {
-      var params = '';
-
-      if (this.props.reportParameters && this.props.reportParameters.stringParam) {
-        params = '?SampleString=' + encodeURIComponent(this.props.reportParameters.stringParam);
-      }
-      // if (this.props.reportParameters && this.props.reportParameters.boolParam !== undefined) {
-      //   params = (params.length > 0) ? (params + '&') : (params + '?');
-      //   params += 'SampleBoolean=' + this.props.reportParameters.boolParam;
-      // }
-      if (this.props.reportParameters && this.props.reportParameters.dateParam !== undefined) {
-        params = (params.length > 0) ? (params + '&') : (params + '?');
-        params += 'SampleDate=' + this.props.reportParameters.dateParam.format('YYYY-MM-DD');
-      }
-
-      const pdfUrl = this.props.reports.reportToOpen + '.pdf' + params;
-      
-      return this.server.open(pdfUrl);
-    }
-
-    return PDF_SAMPLE_FILE;
   }
 
   onDocumentComplete(numberOfPages) {
@@ -67,6 +37,7 @@ class ReportViewer extends Component {
 
   onPageComplete(currentPage) {
     this.props.setCurrentPage(currentPage);
+    this.props.hideWaitModal();
   }
 
   render() {
@@ -77,11 +48,11 @@ class ReportViewer extends Component {
             <Col md={10} mdOffset={1}>
               <div className={style.ReportViewer_canvas}>
                 <PDF 
-                  file={this.getReportUrl()} 
-                  page={this.props.reports.currentPage || 1} 
-                  scale={this.props.reports.scale || 1} 
-                  onDocumentComplete={this.onDocumentComplete.bind(this)}
-                  onPageComplete={this.onPageComplete.bind(this)}/>
+                  file={this.props.reports.reportToOpen} 
+                  page={this.props.reports.currentPage}
+                  scale={this.props.reports.scale}
+                  onDocumentComplete={this.onDocumentComplete}
+                  onPageComplete={this.onPageComplete}/>
               </div>
             </Col>
           </Row>
