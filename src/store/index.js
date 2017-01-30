@@ -24,7 +24,11 @@ import rootReducer from '../reducers/index';
 
 const defaultState = {
   showForm: false,
-  reports: {},
+  reports: {
+    currentPage: 1,
+    numberOfPages: 1,
+    scale: 1
+  },
   waitModal: {show: false},
   errorModal: {show: false},
   reportParameters: {}

@@ -37,7 +37,7 @@ function printReport(state = {}, action) {
 }
 
 function goToTheFirstPage(state = {}, action) {
-  console.log('go to the first page');
+  console.log('go to the first page', state.currentPage);
   return {
     ...state,
     currentPage: 1
@@ -45,31 +45,31 @@ function goToTheFirstPage(state = {}, action) {
 }
 
 function goToThePreviousPage(state = {}, action) {
-  console.log('go to the previous page');
+  console.log('go to the previous page', state.currentPage);
   return {
     ...state,
-    currentPage: (state.currentPage && state.currentPage > 1) ? state.currentPage - 1 : state.currentPage
+    currentPage: (state.currentPage > 1) ? state.currentPage - 1 : 1
   };
 }
 
 function goToTheNextPage(state = {}, action) {
-  console.log('go to the next page');
+  console.log('go to the next page', state.currentPage);
   return {
     ...state,
-    currentPage: (state.currentPage && state.numberOfPages && state.currentPage > state.numberOfPages) ? state.currentPage + 1 : state.currentPage
+    currentPage: (state.currentPage < state.numberOfPages) ? state.currentPage + 1 : state.numberOfPages
   };
 }
 
 function goToTheLastPage(state = {}, action) {
-  console.log('go to the last page');
+  console.log('go to the last page', state.numberOfPages);
   return {
     ...state,
-    currentPage: state.numberOfPages || 1
+    currentPage: state.numberOfPages
   };
 }
 
 function zoomOut(state = {}, action) {
-  console.log('zoom out');
+  console.log('zoom out', state.scale);
   return {
     ...state,
     scale: state.scale > 0.25 ? state.scale - 0.25 : 0.25
@@ -77,7 +77,7 @@ function zoomOut(state = {}, action) {
 }
 
 function zoomIn(state = {}, action) {
-  console.log('zoom in');
+  console.log('zoom in', state.scale);
   return {
     ...state,
     scale: state.scale + 0.25
@@ -85,7 +85,7 @@ function zoomIn(state = {}, action) {
 }
 
 function setCurrentPage(state = {}, action) {
-  console.log('set current page');
+  console.log('set current page', action.currentPage);
   return {
     ...state,
     currentPage: action.currentPage
@@ -93,7 +93,7 @@ function setCurrentPage(state = {}, action) {
 }
 
 function setNumberOfPages(state = {}, action) {
-  console.log('set number of pages');
+  console.log('set number of pages', action.numberOfPages);
   return {
     ...state,
     numberOfPages: action.numberOfPages
