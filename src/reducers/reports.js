@@ -123,10 +123,7 @@ function updateReportParameters(state = {}, action) {
         }      
       }
 
-      const pdfUrl = state.reportToOpen + '.pdf' + params;
-      const server = new ReportServer();
-      
-      return server.open(pdfUrl);
+      return state.reportToOpen + params;
     }
 
     return null;

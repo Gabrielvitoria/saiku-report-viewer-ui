@@ -25,6 +25,7 @@ import {
 import Icon from '../Icon';
 import style from './Menubar.styl';
 import OpenReportModal from '../OpenReportModal';
+import ReportServer from '../../services/ReportServer'
 
 class Menubar extends Component {
   constructor() {
@@ -33,6 +34,8 @@ class Menubar extends Component {
     this.state = {
       showOpenReportModal: false
     };
+
+    this.server = new ReportServer();
 
     this.showOpenReportModal = this.showOpenReportModal.bind(this);
     this.hideOpenReportModal = this.hideOpenReportModal.bind(this);
@@ -49,7 +52,7 @@ class Menubar extends Component {
 
   selectReport(report) {
     this.setState({showOpenReportModal: false});
-    this.props.openReport(report);
+    this.props.openReport(this.server.open(report) + '.pdf');
   }
 
   render() {

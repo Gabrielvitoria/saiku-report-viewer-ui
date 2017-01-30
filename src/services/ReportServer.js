@@ -33,7 +33,7 @@ class ReportServer {
   }
 
   download(reportUrl) {
-    window.open(reportUrl);
+    window.open(reportUrl.replace('render', 'download'));
   }
 }
 
