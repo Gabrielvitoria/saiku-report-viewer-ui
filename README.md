@@ -1,28 +1,12 @@
-# Saiku React Starter
+# Saiku Report Viewer User Interface
 
-A template for writing React based ECMAScript 2015 (ES6) + Redux + React Router + Webpack and more.
+![](./screenshots/demo-all.png)
 
-![](./react-eco.gif)
+## Screenshots
 
-## What's inside it?
-
-- [x] [Webpack](https://webpack.github.io)
-- [x] [Webpack Dashboard](https://github.com/FormidableLabs/webpack-dashboard)
-- [x] [React](https://facebook.github.io/react/)
-- [x] [React Router](https://github.com/ReactTraining/react-router)
-- [x] [Redux](https://github.com/reactjs/redux)
-- [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader)
-- [x] [Jest](https://facebook.github.io/jest/) for tests and [Chai](http://chaijs.com/) for assertions
-- [x] [Storybook](https://getstorybook.io/) to create isolated components' stories
-- [x] [Babel](https://babeljs.io/)
-- [x] [Stylus CSS preprocessor](http://stylus-lang.com/)
-- [x] [CSS Modules](https://github.com/css-modules/css-modules)
-- [x] [PostCSS](https://github.com/postcss/postcss)
-- [x] [Autoprefixer](https://github.com/postcss/autoprefixer)
-- [x] [ESLint](http://eslint.org/)
-- [x] [Travis CI](https://travis-ci.org/)
-- [x] [React-Bootstrap](https://react-bootstrap.github.io/) example
-- [x] HTML and CSS generated automatically by Webpack
+| <img height="48" src="./screenshots/demo-mobile.png"> | <img height="48" src="./screenshots/demo-tablet.png"> | <img height="48" src="./screenshots/demo-desktop.png"> |
+| :---: | :---: | :---: |
+| Mobile | Tablet | Mobile |
 
 ## Dependencies:
 
