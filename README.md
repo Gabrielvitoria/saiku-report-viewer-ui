@@ -4,9 +4,9 @@
 
 ## Screenshots
 
-| <img height="48" src="./screenshots/demo-mobile.png"> | <img height="48" src="./screenshots/demo-tablet.png"> | <img height="48" src="./screenshots/demo-desktop.png"> |
+| <img height="250" width="200" src="./screenshots/demo-mobile.png"> | <img height="300" src="./screenshots/demo-tablet.png"> | <img height="300" src="./screenshots/demo-desktop.png"> |
 | :---: | :---: | :---: |
-| Mobile | Tablet | Mobile |
+| Mobile | Tablet | Desktop |
 
 ## Dependencies:
 
