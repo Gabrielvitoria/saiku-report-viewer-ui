@@ -17,17 +17,17 @@
 'use strict';
 
 const webpack = require('webpack');
-const validate = require('webpack-validator');
-const HtmlPlugin = require('html-webpack-plugin');
+const FaviconsPlugin = require('favicons-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const merge = require('webpack-merge');
 const core = require('./webpack.core');
 
-module.exports = validate(merge.smart(core, {
+module.exports = merge.smart(core, {
   entry: path.join(__dirname, '../src', 'index'),
 
   plugins: [
+    new FaviconsPlugin('./src/assets/logo.png'),
     new ExtractTextPlugin('[name]-[hash].css'),
     new webpack.DefinePlugin({
       'process.env': {
@@ -38,12 +38,15 @@ module.exports = validate(merge.smart(core, {
       compress: { warnings: false }
     }),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin()
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        eslint: {
+          configFile: path.join(__dirname, './eslint.dev.js')
+        }
+      }
+    })
   ],
-
-  eslint: {
-    configFile: path.join(__dirname, './eslint.dev.js')
-  },
 
   module: {
     loaders: [
@@ -54,4 +57,4 @@ module.exports = validate(merge.smart(core, {
       }
     ]
   }
-}));
+});

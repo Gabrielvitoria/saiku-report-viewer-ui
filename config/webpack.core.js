@@ -17,12 +17,11 @@
 'use strict';
 
 const webpack = require('webpack');
-const validate = require('webpack-validator');
 const HtmlPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 
-module.exports = validate({
+module.exports = {
   output: {
     path: path.join(__dirname, '../build'),
     filename: '[name]-[hash].js'
@@ -32,29 +31,36 @@ module.exports = validate({
     new HtmlPlugin({
       title: 'Saiku Report Viewer',
       template: path.join(__dirname, '../src', 'html', 'template.html')
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        // eslint: {
+        //   configFile: path.join(__dirname, './eslint.core.js'),
+        //   useEslintrc: false
+        // },
+        postcss: () => {
+          return [autoprefixer];
+        }
+      }
     })
   ],
 
-  eslint: {
-    configFile: path.join(__dirname, './eslint.core.js'),
-    useEslintrc: false
-  },
-
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        include: /src/,
-        loader: 'eslint'
-      }
-    ],
+    // rules: [
+    //   {
+    //     enforce: 'pre',
+    //     test: /\.js$/,
+    //     exclude: /(node_modules|bower_components)/,
+    //     include: /src/,
+    //     loader: 'eslint-loader'
+    //   }
+    // ],
     loaders: [
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         include: /src/,
-        loader: 'babel'
+        loader: 'babel-loader'
       },
       {
         test: /\.styl$/,
@@ -67,11 +73,11 @@ module.exports = validate({
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json-loader'
       },
       {
         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url',
+        loader: 'url-loader',
         query: {
           limit: 10000,
           mimetype: 'application/font-woff'
@@ -79,7 +85,7 @@ module.exports = validate({
       },
       {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url',
+        loader: 'url-loader',
         query: {
           limit: '10000',
           mimetype: 'application/octet-stream'
@@ -87,11 +93,11 @@ module.exports = validate({
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file'
+        loader: 'file-loader'
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'svg-url',
+        loader: 'svg-url-loader',
         query: {
           limit: '10000',
           mimetype: 'application/svg+xml'
@@ -99,20 +105,16 @@ module.exports = validate({
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'url',
+        loader: 'url-loader',
         query: {
           limit: 8192
         }
       },
       {
         test: /\.ico(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url'
+        loader: 'url-loader'
       }
     ]
-  },
-
-  postcss: () => {
-    return [autoprefixer];
   },
 
   node: {
@@ -127,4 +129,4 @@ module.exports = validate({
       components: path.join(__dirname, '../src', 'components')
     }
   }
-});
+};
