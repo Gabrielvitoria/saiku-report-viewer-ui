@@ -14,30 +14,8 @@
  *   limitations under the License.
  */
 
-.Toolbar
-  z-index 9
+const helpers = {
+  scrollToY: y => window.scrollTo(0, y)
+};
 
-  .Toolbar_navbar
-    height 50px
-    margin-bottom 0
-    border none
-    border-top 1px solid #ddd
-    border-radius 0
-
-  .Toolbar_navbar_form
-    border-color transparent !important
-
-  @media print
-    display none
-
-// Custom, iPhone Retina
-@media only screen and (min-width 320px)
-  .Toolbar
-    .Toolbar_navbar
-      height auto
-
-// Extra Small Devices, Phones
-@media only screen and (min-width 480px)
-  .Toolbar
-    .Toolbar_navbar
-      height auto
+export default helpers;

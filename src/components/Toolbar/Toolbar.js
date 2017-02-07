@@ -22,8 +22,10 @@ import {
   FormControl,
   Button
 } from 'react-bootstrap';
+import { AutoAffix } from 'react-overlays';
 import Icon from '../Icon';
 import Tooltip from '../Tooltip';
+import helpers from '../../helpers';
 import style from './Toolbar.styl';
 
 const WAIT_DEFAULT_MESSAGE = 'Please wait ...';
@@ -32,14 +34,13 @@ class Toolbar extends Component {
   constructor(props) {
     super(props);
 
-    this.onShowForm = this.onShowForm.bind(this);
-
     this.goToTheFirstPage = this.goToTheFirstPage.bind(this);
     this.goToThePreviousPage = this.goToThePreviousPage.bind(this);
     this.goToTheNextPage = this.goToTheNextPage.bind(this);
     this.goToTheLastPage = this.goToTheLastPage.bind(this);
     this.zoomOut = this.zoomOut.bind(this);
     this.zoomIn = this.zoomIn.bind(this);
+    this.onShowForm = this.onShowForm.bind(this);
   }
 
   goToTheFirstPage() {
@@ -76,81 +77,84 @@ class Toolbar extends Component {
     const showForm = !this.props.showForm ? true : false;
 
     this.props.showReportForm(showForm);
+    helpers.scrollToY(0);
   }
 
   render() {
     const showForm = !this.props.showForm;
 
     return (
-      <div className={style.Toolbar}>
-        <Navbar className={style.Toolbar_navbar} fluid role="navigation">
-          <Navbar.Form className={style.Toolbar_navbar_form} pullLeft>
-            <ButtonToolbar>
-              <ButtonGroup className="hidden-xs">
-                <Tooltip title="Print" placement="bottom">
-                  <Button onClick={this.props.printReport}><Icon name="print" /></Button>
-                </Tooltip>
-              </ButtonGroup>
-              <ButtonGroup>
-                <Tooltip title="Go to First Page" placement="bottom">
-                  <Button onClick={this.goToTheFirstPage}><Icon name="angle-double-left" /></Button>
-                </Tooltip>
-                <Tooltip title="Previous Page" placement="bottom">
-                  <Button onClick={this.goToThePreviousPage}><Icon name="angle-left" /></Button>
-                </Tooltip>
-                <Tooltip title="Next Page" placement="bottom">
-                  <Button onClick={this.goToTheNextPage}><Icon name="angle-right" /></Button>
-                </Tooltip>
-                <Tooltip title="Go to Last Page" placement="bottom">
-                  <Button onClick={this.goToTheLastPage}><Icon name="angle-double-right" /></Button>
-                </Tooltip>
-              </ButtonGroup>
-              <ButtonGroup>
-                <Tooltip title="Zoom Out" placement="bottom">
-                  <Button onClick={this.zoomOut}><Icon name="search-minus" /></Button>
-                </Tooltip>
-                <Tooltip title="Zoom In" placement="bottom">
-                  <Button onClick={this.zoomIn}><Icon name="search-plus" /></Button>
-                </Tooltip>
-              </ButtonGroup>
-              <ButtonGroup className="hidden-xs">
-                <FormControl componentClass="select" placeholder="select">
-                  <option value="select">select</option>
-                  <option value="other">...</option>
-                </FormControl>
-              </ButtonGroup>
-              <ButtonGroup className="hidden-sm hidden-md hidden-lg">
-                <Tooltip
-                  title={showForm ? 'Show Form' : 'Hide Form'}
-                  placement="bottom"
-                >
-                  <Button onClick={this.onShowForm}>
-                    <Icon
-                      name={showForm ? 'angle-double-down' : 'angle-double-up'}
-                    />
-                  </Button>
-                </Tooltip>
-              </ButtonGroup>
-            </ButtonToolbar>
-          </Navbar.Form>
-          <Navbar.Form pullRight className="hidden-xs">
-            <ButtonToolbar>
-              <ButtonGroup>
-                <Tooltip
-                  title={showForm ? 'Show Form' : 'Hide Form'}
-                  placement="bottom"
-                >
-                  <Button onClick={this.onShowForm}>
-                    <Icon
-                      name={showForm ? 'angle-double-down' : 'angle-double-up'}
-                    />
-                  </Button>
-                </Tooltip>
-              </ButtonGroup>
-            </ButtonToolbar>
-          </Navbar.Form>
-        </Navbar>
-      </div>
+      <AutoAffix>
+        <div className={style.Toolbar}>
+            <Navbar className={style.Toolbar_navbar} fluid role="navigation">
+              <Navbar.Form className={style.Toolbar_navbar_form} pullLeft>
+                <ButtonToolbar>
+                  <ButtonGroup className="hidden-xs">
+                    <Tooltip title="Print" placement="bottom">
+                      <Button onClick={this.props.printReport}><Icon name="print" /></Button>
+                    </Tooltip>
+                  </ButtonGroup>
+                  <ButtonGroup>
+                    <Tooltip title="Go to First Page" placement="bottom">
+                      <Button onClick={this.goToTheFirstPage}><Icon name="angle-double-left" /></Button>
+                    </Tooltip>
+                    <Tooltip title="Previous Page" placement="bottom">
+                      <Button onClick={this.goToThePreviousPage}><Icon name="angle-left" /></Button>
+                    </Tooltip>
+                    <Tooltip title="Next Page" placement="bottom">
+                      <Button onClick={this.goToTheNextPage}><Icon name="angle-right" /></Button>
+                    </Tooltip>
+                    <Tooltip title="Go to Last Page" placement="bottom">
+                      <Button onClick={this.goToTheLastPage}><Icon name="angle-double-right" /></Button>
+                    </Tooltip>
+                  </ButtonGroup>
+                  <ButtonGroup>
+                    <Tooltip title="Zoom Out" placement="bottom">
+                      <Button onClick={this.zoomOut}><Icon name="search-minus" /></Button>
+                    </Tooltip>
+                    <Tooltip title="Zoom In" placement="bottom">
+                      <Button onClick={this.zoomIn}><Icon name="search-plus" /></Button>
+                    </Tooltip>
+                  </ButtonGroup>
+                  <ButtonGroup className="hidden-xs">
+                    <FormControl componentClass="select" placeholder="select">
+                      <option value="select">select</option>
+                      <option value="other">...</option>
+                    </FormControl>
+                  </ButtonGroup>
+                  <ButtonGroup className="hidden-sm hidden-md hidden-lg">
+                    <Tooltip
+                      title={showForm ? 'Show Form' : 'Hide Form'}
+                      placement="bottom"
+                    >
+                      <Button onClick={this.onShowForm}>
+                        <Icon
+                          name={showForm ? 'angle-double-down' : 'angle-double-up'}
+                        />
+                      </Button>
+                    </Tooltip>
+                  </ButtonGroup>
+                </ButtonToolbar>
+              </Navbar.Form>
+              <Navbar.Form pullRight className="hidden-xs">
+                <ButtonToolbar>
+                  <ButtonGroup>
+                    <Tooltip
+                      title={showForm ? 'Show Form' : 'Hide Form'}
+                      placement="bottom"
+                    >
+                      <Button onClick={this.onShowForm}>
+                        <Icon
+                          name={showForm ? 'angle-double-down' : 'angle-double-up'}
+                        />
+                      </Button>
+                    </Tooltip>
+                  </ButtonGroup>
+                </ButtonToolbar>
+              </Navbar.Form>
+            </Navbar>
+        </div>
+      </AutoAffix>
     );
   }
 }
