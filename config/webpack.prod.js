@@ -37,7 +37,6 @@ module.exports = merge.smart(core, {
     new webpack.optimize.UglifyJsPlugin({
       compress: { warnings: false }
     }),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.LoaderOptionsPlugin({
       options: {
@@ -49,11 +48,14 @@ module.exports = merge.smart(core, {
   ],
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
         include: /(node_modules|bower_components|src)/,
-        loader: ExtractTextPlugin.extract('style', 'css')
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
       }
     ]
   }

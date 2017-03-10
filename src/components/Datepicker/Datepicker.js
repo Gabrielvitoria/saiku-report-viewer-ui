@@ -16,19 +16,9 @@
 
 import React, { Component } from 'react';
 import classNames from 'classnames';
-// import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import {
-  Col,
-  Row,
-  Form,
-  FormGroup,
-  FormControl,
-  ControlLabel,
-  Checkbox,
-  Button
-} from 'react-bootstrap';
-import style from './ReportForm.styl';
+import { FormControl } from 'react-bootstrap';
+import style from './Datepicker.styl';
 import DayPicker, { DateUtils } from 'react-day-picker';
 
 import 'react-day-picker/lib/style.css';
@@ -78,7 +68,7 @@ function YearMonthForm({ date, localeUtils, onChange }) {
   );
 }
 
-class ReportForm extends Component {
+class Datepicker extends Component {
   constructor(props) {
     super(props);
 
@@ -215,12 +205,12 @@ class ReportForm extends Component {
 
   render() {
     const showForm = this.props.showForm
-      ? style.ReportForm_showForm
-      : style.ReportForm_hideForm;
+      ? style.Datepicker_showForm
+      : style.Datepicker_hideForm;
 
     return (
-      <div className={classNames(style.ReportForm, showForm)}>
-        <div className={style.ReportForm_container}>
+      <div className={classNames(style.Datepicker, showForm)}>
+        <div className={style.Datepicker_container}>
           <Form horizontal>
             <FormGroup controlId="formSampleString">
               <Col componentClass={ControlLabel} md={1}>
@@ -280,7 +270,7 @@ class ReportForm extends Component {
             </FormGroup>
           </Form>
         </div>
-        <div className={style.ReportForm_container}>
+        <div className={style.Datepicker_container}>
           <Row>
             <Col md={3}>
               <FormGroup controlId="formAutoUpdate">
@@ -302,4 +292,4 @@ class ReportForm extends Component {
   }
 }
 
-export default ReportForm;
+export default Datepicker;

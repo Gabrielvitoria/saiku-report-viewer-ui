@@ -17,7 +17,6 @@
 'use strict';
 
 const webpack = require('webpack');
-const HtmlPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const path = require('path');
 const merge = require('webpack-merge');
@@ -40,21 +39,21 @@ module.exports = merge.smart(core, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new DashboardPlugin(),
-    // new webpack.LoaderOptionsPlugin({
-    //   options: {
-    //     eslint: {
-    //       configFile: path.join(__dirname, './eslint.dev.js')
-    //     }
-    //   }
-    // })
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        eslint: {
+          configFile: path.join(__dirname, './eslint.dev.js')
+        }
+      }
+    })
   ],
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.css$/,
         include: /(node_modules|bower_components|src)/,
-        loaders: [
+        use: [
           'style-loader',
           'css-loader'
         ]

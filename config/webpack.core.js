@@ -34,10 +34,10 @@ module.exports = {
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
-        // eslint: {
-        //   configFile: path.join(__dirname, './eslint.core.js'),
-        //   useEslintrc: false
-        // },
+        eslint: {
+          configFile: path.join(__dirname, './eslint.core.js'),
+          useEslintrc: false
+        },
         postcss: () => {
           return [autoprefixer];
         }
@@ -46,25 +46,23 @@ module.exports = {
   ],
 
   module: {
-    // rules: [
-    //   {
-    //     enforce: 'pre',
-    //     test: /\.js$/,
-    //     exclude: /(node_modules|bower_components)/,
-    //     include: /src/,
-    //     loader: 'eslint-loader'
-    //   }
-    // ],
-    loaders: [
+    rules: [
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        include: /src/,
+        use: 'eslint-loader'
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         include: /src/,
-        loader: 'babel-loader'
+        use: 'babel-loader'
       },
       {
         test: /\.styl$/,
-        loaders: [
+        use: [
           'style-loader',
           'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
           'postcss-loader',
@@ -73,46 +71,62 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
-      },
-      {
-        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url-loader',
-        query: {
-          limit: 10000,
-          mimetype: 'application/font-woff'
-        }
-      },
-      {
-        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url-loader',
-        query: {
-          limit: '10000',
-          mimetype: 'application/octet-stream'
-        }
+        use: 'json-loader'
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader'
+        use: 'file-loader'
+      },
+      {
+        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              mimetype: 'application/font-woff'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: '10000',
+              mimetype: 'application/octet-stream'
+            }
+          }
+        ]
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'svg-url-loader',
-        query: {
-          limit: '10000',
-          mimetype: 'application/svg+xml'
-        }
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              limit: '10000',
+              mimetype: 'application/svg+xml'
+            }
+          }
+        ]
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'url-loader',
-        query: {
-          limit: 8192
-        }
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
       },
       {
         test: /\.ico(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url-loader'
+        use: 'url-loader'
       }
     ]
   },
